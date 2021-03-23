@@ -18,7 +18,6 @@ const Grid = styled.div`
   gap: 0px 80px;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-auto-rows: 20px;
-  grid-row-end: span 1;
   width: 100%;
 `
 

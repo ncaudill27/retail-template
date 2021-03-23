@@ -1,17 +1,17 @@
 import React, { useState, useRef, useEffect } from "react"
 import styled from "styled-components"
 import { formatPrice } from "../utils/helpers"
+import { SIZES } from '../styles/constants'
 
-const ProductCard = props => {
-  const {
-    currency,
-    unit_amount,
-    product: { name, images, description },
-  } = props
+const ProductCard = ({
+  currency,
+  unit_amount,
+  product: { name, images, description },
+}) => {
 
   const imageEl = useRef()
   const copyEl = useRef()
-  const [gridRowEnd, setGridRowEnd] = useState(`span 10`)
+  const [gridRowEnd, setGridRowEnd] = useState(`span 21`)
 
   useEffect(() => {
     const imgHeight = imageEl.current.getBoundingClientRect().height
@@ -24,13 +24,13 @@ const ProductCard = props => {
 
   return (
     <StyledCard span={gridRowEnd}>
-      <ImgContainer ref={imageEl}>
+      <ImgWrapper ref={imageEl}>
         <img src={images.find(Boolean)} alt={description} />
-      </ImgContainer>
-      <div ref={copyEl}>
+      </ImgWrapper>
+      <CopyWrapper ref={copyEl}>
         <CardTitle>{name}</CardTitle>
         <CardPrice>{formatPrice(unit_amount, currency)}</CardPrice>
-      </div>
+      </CopyWrapper>
     </StyledCard>
   )
 }
@@ -41,9 +41,14 @@ const StyledCard = styled.div`
   grid-row-end: ${p => p.span};
 `
 
-const ImgContainer = styled.div`
+const ImgWrapper = styled.div`
   width: fit-content;
   margin: 0 auto;
+`
+
+const CopyWrapper = styled.div`
+  padding: ${SIZES[0]}px;
+  padding-bottom: 0;
 `
 
 const CardTitle = styled.h2`

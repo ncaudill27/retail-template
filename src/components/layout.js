@@ -1,6 +1,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { SIZES } from '../styles/constants'
 
 import Header from "./header"
 import "./layout.css"
@@ -20,26 +21,27 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <Wrapper>
         <main>{children}</main>
         <Footer>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
         </Footer>
-      </div>
+      </Wrapper>
     </>
   )
 }
 
+const Wrapper = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  padding-bottom: ${SIZES[1]}px;
+`
+
 const Footer = styled.footer`
   margin-top: 2rem;
+  padding: 0 ${SIZES[0]}px;
 `
 
 Layout.propTypes = {

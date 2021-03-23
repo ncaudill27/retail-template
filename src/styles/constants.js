@@ -1,11 +1,11 @@
-const COLORS = {
+export const COLORS = {
   text: "black",
   background: "white",
   primary: "#DB2D24",
   secondary: "#E25750",
 }
 
-const SIZES = [
+export const SIZES = [
   8, // 0
   16, // 1
   24, // 2
