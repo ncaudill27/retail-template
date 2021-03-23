@@ -1,41 +1,15 @@
-import React from 'react'
-import styled from 'styled-components'
-import { graphql, useStaticQuery } from "gatsby";
+import React from "react"
+import styled from "styled-components"
 
-import ProductCard from './ProductCard'
+import ProductCard from "./productCard"
 
-const ProductGrid = (props) => {
-  const data = useStaticQuery(
-    graphql`
-      query ProductPrices {
-        products: allStripePrice(
-          filter: { active: { eq: true } }
-          sort: { fields: [unit_amount] }
-        ) {
-          edges {
-            node {
-              id
-              active
-              currency
-              unit_amount
-              product {
-                id
-                name
-                images
-                description
-              }
-            }
-          }
-        }
-      }
-    `
-  )
-
-  if (!data?.prices) return null //TODO implement some sort of suspense
+const ProductGrid = ({products}) => {
 
   return (
     <Grid>
-
+      {products.map(({ node: product }) => (
+        <ProductCard key={product.id} {...product} />
+      ))}
     </Grid>
   )
 }
@@ -48,3 +22,5 @@ const Grid = styled.div`
   grid-row-end: span 1;
   width: 100%;
 `
+
+export default ProductGrid

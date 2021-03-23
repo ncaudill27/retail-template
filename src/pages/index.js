@@ -1,21 +1,41 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import ProductGrid from '../components/productGrid'
+import { graphql } from "gatsby"
+// import { Link } from "gatsby"
+// import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
+const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
+    <ProductGrid products={data.products.edges} />
   </Layout>
 )
+
+export const query = graphql`
+  query ProductPrices {
+    products: allStripePrice(
+      filter: { active: { eq: true } }
+      sort: { fields: [unit_amount] }
+    ) {
+      edges {
+        node {
+          id
+          active
+          currency
+          unit_amount
+          product {
+            id
+            name
+            images
+            description
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
