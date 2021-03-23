@@ -1,8 +1,16 @@
 export const COLORS = {
   text: "black",
   background: "white",
-  primary: "#DB2D24",
-  secondary: "#E25750",
+  primary: {
+    main: "#DB2D24",
+    light: "#E25750",
+    dark: "#A3221B"
+  },
+  secondary: {
+    main: "#24D2DB",
+    light: "#50DBE2",
+    dark: "#1B9EA5"
+  }
 }
 
 const SIZES = [
