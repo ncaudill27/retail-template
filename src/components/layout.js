@@ -37,12 +37,12 @@ const Layout = ({ children }) => {
 const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 960px;
-  padding-bottom: ${spacing(0)}px;
+  padding-bottom: ${spacing(0)};
 `
 
 const Footer = styled.footer`
   margin-top: 2rem;
-  padding: 0 ${spacing(0)}px;
+  padding: 0 ${spacing(0)};
 `
 
 Layout.propTypes = {

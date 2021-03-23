@@ -8,5 +8,5 @@ export const formatPrice = (amount, currency) => {
   return numberFormat.format(price)
 }
 
-export const spacing = idx => props => props.theme.spacing(idx)
+export const spacing = idx => props => props.theme.spacing(idx) + 'px'
 export const colors = key => props => props.theme.colors[key]
