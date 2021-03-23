@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import styled from "styled-components"
 import { formatPrice } from "../utils/helpers"
-import { SIZES } from '../styles/constants'
+import { size } from '../styles/constants'
 
 const ProductCard = ({
   currency,
@@ -47,7 +47,7 @@ const ImgWrapper = styled.div`
 `
 
 const CopyWrapper = styled.div`
-  padding: ${SIZES[0]}px;
+  padding: ${size(0)}px;
   padding-bottom: 0;
 `
 

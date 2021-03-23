@@ -5,7 +5,7 @@ export const COLORS = {
   secondary: "#E25750",
 }
 
-export const SIZES = [
+const SIZES = [
   8, // 0
   16, // 1
   24, // 2
@@ -20,3 +20,5 @@ export const SIZES = [
   96, // 11
   104, // 12
 ]
+
+export const size = idx => SIZES[idx]
