@@ -16,7 +16,7 @@ const ProductCard = props => {
   useEffect(() => {
     const imgHeight = imageEl.current.getBoundingClientRect().height
     const copyHeight = copyEl.current.getBoundingClientRect().height
-    const rowEnd = Math.floor((imgHeight / 20) + (copyHeight / 20) + 2)
+    const rowEnd = Math.floor(imgHeight / 20 + copyHeight / 20 + 2)
     setGridRowEnd(`span ${rowEnd}`)
   }, [imageEl, copyEl]) //TODO add useWidth hook to dependencies
   // useWidth hook allows for element to be properly placed after window resizing

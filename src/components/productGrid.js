@@ -3,8 +3,7 @@ import styled from "styled-components"
 
 import ProductCard from "./productCard"
 
-const ProductGrid = ({products}) => {
-
+const ProductGrid = ({ products }) => {
   return (
     <Grid>
       {products.map(({ node: product }) => (

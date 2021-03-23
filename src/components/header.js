@@ -1,7 +1,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import styled from 'styled-components'
+import styled from "styled-components"
 
 const Header = ({ siteTitle }) => (
   <header
@@ -28,7 +28,7 @@ const Header = ({ siteTitle }) => (
 
 const Wrapper = styled.div`
   margin: 0 auto;
-  maxWidth: 960;
+  maxwidth: 960;
   padding: 1.45rem 1.0875rem;
 `
 

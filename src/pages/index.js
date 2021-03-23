@@ -1,5 +1,5 @@
 import * as React from "react"
-import ProductGrid from '../components/productGrid'
+import ProductGrid from "../components/productGrid"
 import { graphql } from "gatsby"
 // import { Link } from "gatsby"
 // import { StaticImage } from "gatsby-plugin-image"
@@ -7,7 +7,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = ({data}) => (
+const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <ProductGrid products={data.products.edges} />

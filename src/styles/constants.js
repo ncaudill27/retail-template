@@ -1,12 +1,12 @@
 const COLORS = {
-  text: 'black',
-  background: 'white',
-  primary: '#DB2D24',
-  secondary: '#E25750'
+  text: "black",
+  background: "white",
+  primary: "#DB2D24",
+  secondary: "#E25750",
 }
 
 const SIZES = [
-  8,  // 0
+  8, // 0
   16, // 1
   24, // 2
   32, // 3
@@ -18,5 +18,5 @@ const SIZES = [
   80, // 9
   88, // 10
   96, // 11
-  104 // 12
+  104, // 12
 ]
