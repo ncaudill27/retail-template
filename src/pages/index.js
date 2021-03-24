@@ -1,8 +1,6 @@
 import * as React from "react"
 import ProductGrid from "../components/productGrid"
 import { graphql } from "gatsby"
-// import { Link } from "gatsby"
-// import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -24,14 +22,18 @@ export const query = graphql`
         node {
           id
           active
-          currency
           unit_amount
           product {
             id
             name
-            images
             description
+            image: localFiles {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
           }
+          currency
         }
       }
     }

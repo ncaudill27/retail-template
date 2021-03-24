@@ -2,7 +2,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { spacing } from '../utils/helpers'
+import { spacing } from "../utils/helpers"
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>

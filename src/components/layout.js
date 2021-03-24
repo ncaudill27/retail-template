@@ -2,8 +2,8 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import styled, { ThemeProvider } from "styled-components"
-import { theme } from '../styles/theme'
-import { spacing } from '../utils/helpers'
+import { theme } from "../styles/theme"
+import { spacing } from "../utils/helpers"
 
 import Header from "./header"
 import "./layout.css"

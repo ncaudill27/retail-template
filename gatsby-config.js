@@ -24,7 +24,7 @@ module.exports = {
       options: {
         objects: ["Price"],
         secretKey: process.env.STRIPE_SECRET_KEY,
-        downloadFiles: false,
+        downloadFiles: true,
       },
     },
     `gatsby-transformer-sharp`,

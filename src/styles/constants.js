@@ -4,13 +4,13 @@ export const COLORS = {
   primary: {
     main: "#DB2D24",
     light: "#E25750",
-    dark: "#A3221B"
+    dark: "#A3221B",
   },
   secondary: {
     main: "#24D2DB",
     light: "#50DBE2",
-    dark: "#1B9EA5"
-  }
+    dark: "#1B9EA5",
+  },
 }
 
 const SIZES = [

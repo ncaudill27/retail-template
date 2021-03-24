@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from "react"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { formatPrice, spacing } from "../utils/helpers"
 
 const ProductCard = ({
   currency,
   unit_amount,
-  product: { name, images, description },
+  product: { name, image, description },
 }) => {
-
+  image = getImage(image.find(Boolean))
   const imageEl = useRef()
   const copyEl = useRef()
   const [gridRowEnd, setGridRowEnd] = useState(`span 21`)
@@ -24,7 +25,7 @@ const ProductCard = ({
   return (
     <StyledCard span={gridRowEnd}>
       <ImgWrapper ref={imageEl}>
-        <img src={images.find(Boolean)} alt={description} />
+        <GatsbyImage image={image} alt={description} />
       </ImgWrapper>
       <CopyWrapper ref={copyEl}>
         <CardTitle>{name}</CardTitle>
@@ -42,7 +43,8 @@ const StyledCard = styled.div`
 
 const ImgWrapper = styled.div`
   width: fit-content;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 `
 
 const CopyWrapper = styled.div`
