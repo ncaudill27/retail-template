@@ -4,32 +4,35 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import { spacing } from "../utils/helpers"
 
+import HeaderBackground from './headerBackground'
+
 const Header = ({ siteTitle }) => (
-  <StyledHeader>
-    <Wrapper>
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </Wrapper>
-  </StyledHeader>
+  <HeaderBackground>
+    <StyledHeader>
+      <Wrapper>
+        <h1 style={{ margin: 0 }}>
+          <Link
+            to="/"
+            style={{
+              color: `white`,
+              textDecoration: `none`,
+            }}
+          >
+            {siteTitle}
+          </Link>
+        </h1>
+      </Wrapper>
+    </StyledHeader>
+  </HeaderBackground>
 )
 
 const StyledHeader = styled.header`
-  background: rebeccapurple;
   margin-bottom: ${spacing(1)};
 `
 const Wrapper = styled.div`
   margin: 0 auto;
   maxwidth: 960;
-  padding: 1.45rem 1.0875rem;
+  padding: ${spacing(5)} ${spacing(3)};
 `
 
 Header.propTypes = {
