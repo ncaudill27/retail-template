@@ -7,23 +7,22 @@ import { spacing } from "../utils/helpers"
 import HeaderBackground from './headerBackground'
 
 const Header = ({ siteTitle }) => (
-  <HeaderBackground>
-    <StyledHeader>
-      <Wrapper>
-        <h1 style={{ margin: 0 }}>
-          <Link
-            to="/"
-            style={{
-              color: `white`,
-              textDecoration: `none`,
-            }}
-          >
-            {siteTitle}
-          </Link>
-        </h1>
-      </Wrapper>
-    </StyledHeader>
-  </HeaderBackground>
+  <StyledHeader>
+    <HeaderBackground />
+    <Wrapper>
+      <h1 style={{ margin: 0 }}>
+        <Link
+          to="/"
+          style={{
+            color: `white`,
+            textDecoration: `none`,
+          }}
+        >
+          {siteTitle}
+        </Link>
+      </h1>
+    </Wrapper>
+  </StyledHeader>
 )
 
 const StyledHeader = styled.header`

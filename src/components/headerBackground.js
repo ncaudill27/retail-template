@@ -1,31 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby';
-import { getImage } from 'gatsby-plugin-image';
-import { BgImage } from 'gbimage-bridge';
+import HeaderImage from '../images/svg/header-background.svg'
 
-const HeaderBackground = ({children}) => {
-  const { placeholderImage } = useStaticQuery(
-    graphql`
-      query {
-        placeholderImage: file(relativePath: { eq: "mesh-gradient.png" }) {
-          childImageSharp {
-            gatsbyImageData(
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
-          }
-        }
-      }
-    `
-  );
-  const pluginImage = getImage(placeholderImage);
+const HeaderBackground = ({children}) => (
+  <Wrapper>
+    <HeaderImage />
+  </Wrapper>
+)
 
-  return (
-    <BgImage image={pluginImage}>
-      {children}
-    </BgImage>
-  );
-};
+const Wrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-width: 100%;
+`
 
 export default HeaderBackground
