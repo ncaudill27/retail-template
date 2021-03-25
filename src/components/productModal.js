@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Portal from "@reach/portal"
 import Dialog from "@reach/dialog"
 import { spacing } from "../utils/helpers"
+import ProductDetails from './productDetails' 
 
 import "@reach/dialog/styles.css";
 
@@ -11,9 +12,8 @@ const ProductModal = ({ showDialog, closeDialog, product }) => {
   return (
     <Portal>
       <Dialog isOpen={showDialog} onDismiss={closeDialog}>
-          <button onClick={closeDialog}>X</button>
-          <h2>Test Title</h2>
-          <p>This is test information to see how the component will render</p>
+        <button onClick={closeDialog}>X</button>
+        <ProductDetails {...product} />
       </Dialog>
     </Portal>
   )
