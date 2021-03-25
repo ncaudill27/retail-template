@@ -3,9 +3,9 @@ import styled from "styled-components"
 
 import ProductCard from "./productCard"
 
-const ProductGrid = ({ products }) => {
+const ProductGrid = ({ products, handleDialog }) => {
   return (
-    <Grid>
+    <Grid onClick={handleDialog}>
       {products.map(({ node: product }) => (
         <ProductCard key={product.id} {...product} />
       ))}

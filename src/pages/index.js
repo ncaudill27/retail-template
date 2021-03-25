@@ -2,19 +2,20 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 
 import ProductGrid from "../components/productGrid"
-import ProductModal from '../components/productModal'
+import ProductModal from "../components/productModal"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [showDialog, setShowDialog] = useState(false)
+  const toggleDialog = () => setShowDialog(prev => !prev)
 
   return (
     <Layout>
       <SEO title="Home" />
-      <ProductGrid products={data.products.edges} />
-      <ProductModal isOpen={isOpen} />
+      <ProductGrid products={data.products.edges} handleDialog={toggleDialog} />
+      <ProductModal showDialog={showDialog} toggleDialog={toggleDialog} />
     </Layout>
   )
 }
