@@ -31,9 +31,9 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /svg/ // See below to configure properly
-        }
-      }
+          include: /svg/, // See below to configure properly
+        },
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
