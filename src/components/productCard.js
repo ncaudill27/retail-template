@@ -9,7 +9,6 @@ const ProductCard = ({
   handleProductView,
   product: { name, image, description },
 }) => {
-
   image = getImage(image.find(Boolean))
   const imageEl = useRef()
   const copyEl = useRef()
@@ -25,13 +24,16 @@ const ProductCard = ({
   // e.g. when a phone gets turned sideways
 
   return (
-    <StyledCard span={gridRowEnd} onClick={handleProductView({
-      currency,
-      unit_amount,
-      name,
-      image,
-      description
-    })}>
+    <StyledCard
+      span={gridRowEnd}
+      onClick={handleProductView({
+        currency,
+        unit_amount,
+        name,
+        image,
+        description,
+      })}
+    >
       <ImgWrapper ref={imageEl}>
         <GatsbyImage image={image} alt={description} />
       </ImgWrapper>

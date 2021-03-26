@@ -1,25 +1,26 @@
 import React from "react"
 import styled from "styled-components"
 import Portal from "@reach/portal"
-import Dialog from "@reach/dialog"
+import { DialogOverlay, DialogContent } from "@reach/dialog"
 import { spacing } from "../utils/helpers"
-import ProductDetails from './productDetails' 
+import ProductDetails from "./productDetails"
 
-import "@reach/dialog/styles.css";
+import "@reach/dialog/styles.css"
 
-const ProductModal = ({ showDialog, closeDialog, product }) => {
-  console.log(product)
-  return (
-    <Portal>
-      <Dialog isOpen={showDialog} onDismiss={closeDialog}>
+const ProductModal = ({ showDialog, closeDialog, product }) => (
+  <Portal>
+    <DialogOverlay isOpen={showDialog} onDismiss={closeDialog}>
+      <StyledDialog>
         <button onClick={closeDialog}>X</button>
         <ProductDetails {...product} />
-      </Dialog>
-    </Portal>
-  )
-}
+      </StyledDialog>
+    </DialogOverlay>
+  </Portal>
+)
 
-const PortalWrapper = styled.div`
+// &:nth-child(8) > div:nth-child(3) > div > div
+
+const StyledDialog = styled(DialogContent)`
   position: fixed;
   top: 0;
   right: 0;
@@ -27,8 +28,8 @@ const PortalWrapper = styled.div`
   left: 0;
   margin: auto;
   padding: ${spacing(2)};
-  width: 300px;
-  height: 300px;
+  width: 700px;
+  height: 500px;
   background-color: white;
   border: 3px solid;
 `
