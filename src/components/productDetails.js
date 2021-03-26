@@ -6,6 +6,7 @@ import { formatPrice, spacing } from "../utils/helpers"
 const ProductDetails = ({
   name,
   image,
+  labelId,
   currency,
   description,
   unit_amount,
@@ -13,7 +14,7 @@ const ProductDetails = ({
   return (
     <RootWrapper>
       <div>
-        <h2>{name}</h2>
+        <h2 id={labelId}>{name}</h2>
         <p>{formatPrice(unit_amount, currency)}</p>
         <p>{description}</p>
       </div>

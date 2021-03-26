@@ -12,6 +12,8 @@ const ProductCard = ({
   product: { id: productId, name, image, description },
 }) => {
   // TODO add product transformer abstraction
+  image = getImage(image.find(Boolean))
+  
   const flatProduct = {
     name,
     image,
@@ -22,8 +24,6 @@ const ProductCard = ({
     description,
     unit_amount,
   }
-
-  image = getImage(image.find(Boolean))
   
   const imageEl = useRef()
   const copyEl = useRef()
