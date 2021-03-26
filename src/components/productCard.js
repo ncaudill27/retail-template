@@ -4,12 +4,27 @@ import styled from "styled-components"
 import { formatPrice, spacing } from "../utils/helpers"
 
 const ProductCard = ({
+  id: priceId,
+  active,
   currency,
   unit_amount,
   handleProductView,
-  product: { name, image, description },
+  product: { id: productId, name, image, description },
 }) => {
+  // TODO add product transformer abstraction
+  const flatProduct = {
+    name,
+    image,
+    active,
+    priceId,
+    currency,
+    productId,
+    description,
+    unit_amount,
+  }
+
   image = getImage(image.find(Boolean))
+  
   const imageEl = useRef()
   const copyEl = useRef()
   const [gridRowEnd, setGridRowEnd] = useState(`span 21`)
@@ -26,13 +41,7 @@ const ProductCard = ({
   return (
     <StyledCard
       span={gridRowEnd}
-      onClick={handleProductView({
-        currency,
-        unit_amount,
-        name,
-        image,
-        description,
-      })}
+      onClick={handleProductView(flatProduct)}
     >
       <ImgWrapper ref={imageEl}>
         <GatsbyImage image={image} alt={description} />
