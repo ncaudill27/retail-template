@@ -1,22 +1,27 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
 import styled from "styled-components"
+import { Link } from "gatsby"
+import { useShoppingCart } from 'use-shopping-cart'
 import { spacing } from "../utils/helpers"
 
 import HeaderBackground from "./headerBackground"
 
-const Header = ({ siteTitle }) => (
-  <StyledHeader>
-    <HeaderBackground />
-    <Wrapper>
-      <Title>
-        <StyledLink to="/">{siteTitle}</StyledLink>
-      </Title>
-    </Wrapper>
-  </StyledHeader>
-)
-
+const Header = ({ siteTitle }) => {
+  const { totalPrice, redirectToCheckout, cartCount } = useShoppingCart()
+    
+  return (
+    <StyledHeader>
+      <HeaderBackground />
+      <Wrapper>
+        <Title>
+          <StyledLink to="/">{siteTitle}</StyledLink>
+        </Title>
+        {cartCount}
+      </Wrapper>
+    </StyledHeader>
+  )
+}
 const StyledHeader = styled.header`
   margin-bottom: ${spacing(1)};
   isolation: isolate;
