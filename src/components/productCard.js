@@ -4,27 +4,28 @@ import styled from "styled-components"
 import { formatPrice, spacing } from "../utils/helpers"
 
 const ProductCard = ({
-  id: priceId,
+  id,
   active,
   currency,
   unit_amount,
   handleProductView,
-  product: { id: productId, name, image, description },
+  product: { id: product_id, name, image, description },
 }) => {
   // TODO add product transformer abstraction
-  image = getImage(image.find(Boolean))
-  
+  const gatsbyImage = getImage(image.find(Boolean))
+
   const flatProduct = {
     name,
     image,
     active,
-    priceId,
+    id,
     currency,
-    productId,
+    product_id,
     description,
     unit_amount,
+    gatsbyImage,
   }
-  
+
   const imageEl = useRef()
   const copyEl = useRef()
   const [gridRowEnd, setGridRowEnd] = useState(`span 21`)
@@ -39,12 +40,9 @@ const ProductCard = ({
   // e.g. when a phone gets turned sideways
 
   return (
-    <StyledCard
-      span={gridRowEnd}
-      onClick={handleProductView(flatProduct)}
-    >
+    <StyledCard span={gridRowEnd} onClick={handleProductView(flatProduct)}>
       <ImgWrapper ref={imageEl}>
-        <GatsbyImage image={image} alt={description} />
+        <GatsbyImage image={gatsbyImage} alt={description} />
       </ImgWrapper>
       <CopyWrapper ref={copyEl}>
         <CardTitle>{name}</CardTitle>

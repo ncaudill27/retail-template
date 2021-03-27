@@ -27,6 +27,7 @@ const StyledDialog = styled(Dialog)`
   bottom: 0;
   left: 0;
   margin: auto;
+  height: 60vh;
   padding: ${spacing(2)};
   background-color: white;
   border: 3px solid;

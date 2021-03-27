@@ -10,6 +10,7 @@ const ProductDetails = ({
   currency,
   description,
   unit_amount,
+  gatsbyImage,
 }) => {
   return (
     <RootWrapper>
@@ -19,7 +20,7 @@ const ProductDetails = ({
         <p>{description}</p>
       </div>
       <ImgWrapper>
-        <GatsbyImage image={image} alt={description} />
+        <GatsbyImage image={gatsbyImage} alt={description} />
       </ImgWrapper>
     </RootWrapper>
   )

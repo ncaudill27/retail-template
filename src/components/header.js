@@ -2,7 +2,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { useShoppingCart } from 'use-shopping-cart'
+import { useShoppingCart, DebugCart } from 'use-shopping-cart'
 import { spacing } from "../utils/helpers"
 
 import HeaderBackground from "./headerBackground"
@@ -17,7 +17,12 @@ const Header = ({ siteTitle }) => {
         <Title>
           <StyledLink to="/">{siteTitle}</StyledLink>
         </Title>
-        {cartCount}
+        <div>
+          <p>
+            Total Price: {totalPrice} <br />
+            Item Count: {cartCount}
+          </p>
+        </div>
       </Wrapper>
     </StyledHeader>
   )
