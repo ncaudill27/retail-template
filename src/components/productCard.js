@@ -7,7 +7,7 @@ const ProductCard = ({
   id,
   active,
   currency,
-  unit_amount,
+  unit_amount: price,
   handleProductView,
   product: { id: product_id, name, image, description },
 }) => {
@@ -16,13 +16,13 @@ const ProductCard = ({
 
   const flatProduct = {
     name,
-    image,
-    active,
     id,
+    price,
+    image,
     currency,
+    active,
     product_id,
     description,
-    unit_amount,
     gatsbyImage,
   }
 
@@ -46,7 +46,7 @@ const ProductCard = ({
       </ImgWrapper>
       <CopyWrapper ref={copyEl}>
         <CardTitle>{name}</CardTitle>
-        <CardPrice>{formatPrice(unit_amount, currency)}</CardPrice>
+        <CardPrice>{formatPrice(price, currency)}</CardPrice>
       </CopyWrapper>
     </StyledCard>
   )

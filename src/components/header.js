@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { useShoppingCart, DebugCart } from 'use-shopping-cart'
-import { spacing } from "../utils/helpers"
+import { spacing, formatPrice } from "../utils/helpers"
 
 import HeaderBackground from "./headerBackground"
 
@@ -19,7 +19,7 @@ const Header = ({ siteTitle }) => {
         </Title>
         <div>
           <p>
-            Total Price: {totalPrice} <br />
+            Total Price: {formatPrice(totalPrice, 'USD')} <br />
             Item Count: {cartCount}
           </p>
         </div>

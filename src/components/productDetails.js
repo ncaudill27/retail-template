@@ -9,14 +9,14 @@ const ProductDetails = ({
   labelId,
   currency,
   description,
-  unit_amount,
+  price,
   gatsbyImage,
 }) => {
   return (
     <RootWrapper>
       <div>
         <h2 id={labelId}>{name}</h2>
-        <p>{formatPrice(unit_amount, currency)}</p>
+        <p>{formatPrice(price, currency)}</p>
         <p>{description}</p>
       </div>
       <ImgWrapper>
