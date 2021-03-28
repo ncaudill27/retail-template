@@ -26,7 +26,7 @@ const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
 }
 
 ProductModal.propTypes = {
-  showDialog: PropTypes.func.isRequired,
+  showDialog: PropTypes.bool.isRequired,
   closeDialog: PropTypes.func.isRequired,
   showCart: PropTypes.func.isRequired,
 }
