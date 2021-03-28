@@ -35,6 +35,7 @@ const IndexPage = ({ data }) => {
         product={dialogProduct}
         showDialog={showProductDialog}
         closeDialog={closeProductDialog}
+        showCart={openCartDialog}
       />
       <CartModal
         showDialog={showCartDialog}

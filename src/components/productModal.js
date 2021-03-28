@@ -6,10 +6,14 @@ import { useShoppingCart } from 'use-shopping-cart'
 
 import "@reach/dialog/styles.css"
 
-const ProductModal = ({ showDialog, closeDialog, product }) => {
+const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
   const label = `label__${product.product_id}`
   const { addItem } = useShoppingCart()
-  const handleAddItem = () => addItem(product)
+  const handleAddItem = async () => {
+    await addItem(product)
+    await closeDialog()
+    showCart()
+  }
 
   return (
     <Modal showDialog={showDialog} closeDialog={closeDialog} labelledBy={label}>
@@ -24,6 +28,7 @@ const ProductModal = ({ showDialog, closeDialog, product }) => {
 ProductModal.propTypes = {
   showDialog: PropTypes.func.isRequired,
   closeDialog: PropTypes.func.isRequired,
+  showCart: PropTypes.func.isRequired,
 }
 
 ProductModal.defaultProps = {
