@@ -3,20 +3,25 @@ import { graphql } from "gatsby"
 
 import ProductGrid from "../components/productGrid"
 import ProductModal from "../components/productModal"
+import CartModal from '../components/cartModal'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
-  const [showDialog, setShowDialog] = useState(false)
-  const openDialog = () => setShowDialog(true)
-  const closeDialog = () => setShowDialog(false)
+  const [showProductDialog, setShowProductDialog] = useState(false)
+  const openProductDialog = () => setShowProductDialog(true)
+  const closeProductDialog = () => setShowProductDialog(false)
+
+  const [showCartDialog, setShowCartDialog] = useState(false)
+  const openCartDialog = () => setShowCartDialog(true)
+  const closeCartDialog = () => setShowCartDialog(false)
 
   const [dialogProduct, setDialogProduct] = useState({})
 
   const handleProductView = product => e => {
     setDialogProduct(product)
-    openDialog()
+    openProductDialog()
   }
 
   return (
@@ -28,9 +33,13 @@ const IndexPage = ({ data }) => {
       />
       <ProductModal
         product={dialogProduct}
-        showDialog={showDialog}
-        openDialog={openDialog}
-        closeDialog={closeDialog}
+        showDialog={showProductDialog}
+        closeDialog={closeProductDialog}
+      />
+      <CartModal
+        showDialog={showCartDialog}
+        openDialog={openCartDialog}
+        closeDialog={closeCartDialog}
       />
     </Layout>
   )

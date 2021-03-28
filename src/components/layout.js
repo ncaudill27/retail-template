@@ -5,7 +5,6 @@ import styled, { ThemeProvider } from "styled-components"
 import { theme } from "../styles/theme"
 import { spacing } from "../utils/helpers"
 
-import getStripe from '../utils/stripe'
 import { CartProvider } from 'use-shopping-cart'
 
 import Header from "./header"

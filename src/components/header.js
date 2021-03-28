@@ -2,7 +2,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { useShoppingCart, DebugCart } from 'use-shopping-cart'
+import { useShoppingCart } from 'use-shopping-cart'
 import { spacing, formatPrice } from "../utils/helpers"
 
 import HeaderBackground from "./headerBackground"

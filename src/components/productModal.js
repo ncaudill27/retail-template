@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from  'prop-types'
 import Modal from "./modal"
 import ProductDetails from "./productDetails"
 import { useShoppingCart } from 'use-shopping-cart'
@@ -18,6 +19,15 @@ const ProductModal = ({ showDialog, closeDialog, product }) => {
       </button>
     </Modal>
   )
+}
+
+ProductModal.propTypes = {
+  showDialog: PropTypes.func.isRequired,
+  closeDialog: PropTypes.func.isRequired,
+}
+
+ProductModal.defaultProps = {
+  product: {}
 }
 
 export default ProductModal

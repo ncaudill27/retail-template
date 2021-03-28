@@ -1,15 +1,14 @@
 import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-import { formatPrice, spacing } from "../utils/helpers"
+import { formatPrice } from "../utils/helpers"
 
 const ProductDetails = ({
   name,
-  image,
+  price,
   labelId,
   currency,
   description,
-  price,
   gatsbyImage,
 }) => {
   return (
@@ -34,11 +33,6 @@ const ImgWrapper = styled.div`
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-`
-
-const CopyWrapper = styled.div`
-  padding: ${spacing(0)};
-  padding-bottom: 0;
 `
 
 export default ProductDetails
