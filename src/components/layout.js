@@ -11,6 +11,9 @@ import { CartProvider } from 'use-shopping-cart'
 import Header from "./header"
 import "./layout.css"
 
+import { loadStripe } from "@stripe/stripe-js";
+const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY)
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -25,7 +28,7 @@ const Layout = ({ children }) => {
   return (
     <CartProvider
       mode='client-only'
-      stripe={getStripe}
+      stripe={stripePromise}
       successUrl='http://localhost:8000/'
       cancelUrl='http://localhost:8000/failure'
       currency='USD'

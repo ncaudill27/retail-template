@@ -10,6 +10,17 @@ import HeaderBackground from "./headerBackground"
 const Header = ({ siteTitle }) => {
   const { totalPrice, redirectToCheckout, cartCount } = useShoppingCart()
     
+  const handleCheckout = async e => {
+    e.preventDefault()
+
+    if (cartCount > 0) {
+      const error = await redirectToCheckout()
+      if (error) console.warn('Error bro')
+    } else {
+      // handle not enough item logging and shit
+    }
+  }
+
   return (
     <StyledHeader>
       <HeaderBackground />
@@ -22,6 +33,9 @@ const Header = ({ siteTitle }) => {
             Total Price: {formatPrice(totalPrice, 'USD')} <br />
             Item Count: {cartCount}
           </p>
+          <button onClick={handleCheckout}>
+            Checkout
+          </button>
         </div>
       </Wrapper>
     </StyledHeader>
@@ -29,14 +43,17 @@ const Header = ({ siteTitle }) => {
 }
 const StyledHeader = styled.header`
   margin-bottom: ${spacing(1)};
-  isolation: isolate;
+  width: 100%;
 `
 
 const Wrapper = styled.div`
   position: absolute;
   top: 0;
   margin: 0 auto;
+  width: 100%;
   padding: ${spacing(5)} ${spacing(3)};
+  display: flex;
+  justify-content: space-between;
 `
 
 const Title = styled.h1`
