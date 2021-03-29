@@ -1,4 +1,4 @@
-export const formatPrice = (amount, currency = 'USD') => {
+export const formatPrice = (amount, currency = "USD") => {
   let price = (amount / 100).toFixed(2)
   let numberFormat = new Intl.NumberFormat(["en-US"], {
     style: "currency",

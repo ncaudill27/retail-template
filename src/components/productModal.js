@@ -1,8 +1,12 @@
 import React from "react"
-import PropTypes from  'prop-types'
-import Modal from "./modal"
+import PropTypes from "prop-types"
+import styled from "styled-components"
+import { useShoppingCart } from "use-shopping-cart"
+import { spacing } from "../utils/helpers"
+
+import Portal from "@reach/portal"
+import Dialog from "@reach/dialog"
 import ProductDetails from "./productDetails"
-import { useShoppingCart } from 'use-shopping-cart'
 
 import "@reach/dialog/styles.css"
 
@@ -16,14 +20,31 @@ const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
   }
 
   return (
-    <Modal showDialog={showDialog} closeDialog={closeDialog} labelledBy={label}>
-      <ProductDetails {...product} labelId={label} />
-      <button onClick={handleAddItem}>
-        Add To Cart
-      </button>
-    </Modal>
+    <Portal>
+      <StyledDialog
+        isOpen={showDialog}
+        onDismiss={closeDialog}
+        aria-labelledBy={label}
+      >
+        <ProductDetails {...product} labelId={label} />
+        <button onClick={handleAddItem}>Add To Cart</button>
+      </StyledDialog>
+    </Portal>
   )
 }
+
+const StyledDialog = styled(Dialog)`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  height: 60vh;
+  padding: ${spacing(2)};
+  background-color: white;
+  border: 3px solid;
+`
 
 ProductModal.propTypes = {
   showDialog: PropTypes.bool.isRequired,
@@ -32,7 +53,7 @@ ProductModal.propTypes = {
 }
 
 ProductModal.defaultProps = {
-  product: {}
+  product: {},
 }
 
 export default ProductModal

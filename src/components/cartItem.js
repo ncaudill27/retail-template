@@ -1,9 +1,16 @@
-import React from 'react'
-import styled from 'styled-components'
-import { GatsbyImage } from 'gatsby-plugin-image'
-import { formatPrice } from '../utils/helpers'
+import React from "react"
+import styled from "styled-components"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { formatPrice } from "../utils/helpers"
 
-const CartItem = ({name, quantity, price, description, gatsbyImage, formattedValue}) => (
+const CartItem = ({
+  name,
+  quantity,
+  price,
+  description,
+  gatsbyImage,
+  formattedValue,
+}) => (
   <StyledCartItem>
     <ImgWrapper>
       <GatsbyImage image={gatsbyImage} alt={description} />

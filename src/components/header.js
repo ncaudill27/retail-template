@@ -7,7 +7,6 @@ import { spacing } from "../utils/helpers"
 import HeaderBackground from "./headerBackground"
 
 const Header = ({ siteTitle }) => {
-
   return (
     <StyledHeader>
       <HeaderBackground />

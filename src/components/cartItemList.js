@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from "react"
+import PropTypes from "prop-types"
+import styled from "styled-components"
 
-import CartItem from './cartItem'
+import CartItem from "./cartItem"
 
-const CartItemsList = ({cart}) => (
+const CartItemsList = ({ cart }) => (
   <StyledCartList>
     {cart.map(item => {
       console.log(item)
@@ -15,7 +15,6 @@ const CartItemsList = ({cart}) => (
 
 const StyledCartList = styled.div`
   border: 1px solid;
-  overflow: scroll;
 `
 
 CartItemsList.propTypes = {
@@ -23,7 +22,7 @@ CartItemsList.propTypes = {
 }
 
 CartItemsList.defaultProps = {
-  cart: []
+  cart: [],
 }
 
 export default CartItemsList

@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 import styled from "styled-components"
 import Portal from "@reach/portal"
 import Dialog from "@reach/dialog"
@@ -8,11 +8,13 @@ import { spacing } from "../utils/helpers"
 import "@reach/dialog/styles.css"
 
 const Modal = ({ showDialog, closeDialog, labelledBy, children }) => {
-
-
   return (
     <Portal>
-      <StyledDialog isOpen={showDialog} onDismiss={closeDialog} aria-labelledby={labelledBy}>
+      <StyledDialog
+        isOpen={showDialog}
+        onDismiss={closeDialog}
+        aria-labelledby={labelledBy}
+      >
         <button onClick={closeDialog}>X</button>
         {children}
       </StyledDialog>
@@ -37,7 +39,7 @@ Modal.propTypes = {
   showDialog: PropTypes.bool.isRequired,
   closeDialog: PropTypes.func.isRequired,
   labelledBy: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 }
 
 export default Modal

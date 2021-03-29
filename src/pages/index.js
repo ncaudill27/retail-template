@@ -1,16 +1,15 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 
-import CartPortal from '../components/cartPortal'
+import CartPortal from "../components/cartPortal"
 import ProductGrid from "../components/productGrid"
 import ProductModal from "../components/productModal"
-import CartModal from '../components/cartModal'
+import CartModal from "../components/cartModal"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
-
   const [showProductDialog, setShowProductDialog] = useState(false)
   const openProductDialog = () => setShowProductDialog(true)
   const closeProductDialog = () => setShowProductDialog(false)
