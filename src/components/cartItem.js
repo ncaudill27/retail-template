@@ -17,13 +17,17 @@ const CartItem = ({name, quantity, price, description, gatsbyImage, formattedVal
 
 const StyledCartItem = styled.div`
   height: 200px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 150px 200px repeat(3, 1fr);
+  gap: 8px;
 `
 
 const ImgWrapper = styled.div`
-  width: fit-content;
+  width: auto;
+  height: 200px;
   margin-left: auto;
   margin-right: auto;
+  flex-shrink: 1;
 `
 
 export default CartItem

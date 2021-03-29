@@ -2,24 +2,11 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { useShoppingCart } from 'use-shopping-cart'
-import { spacing, formatPrice } from "../utils/helpers"
+import { spacing } from "../utils/helpers"
 
 import HeaderBackground from "./headerBackground"
 
 const Header = ({ siteTitle }) => {
-  const { totalPrice, redirectToCheckout, cartCount } = useShoppingCart()
-    
-  const handleCheckout = async e => {
-    e.preventDefault()
-
-    if (cartCount > 0) {
-      const error = await redirectToCheckout()
-      if (error) console.warn('Error bro')
-    } else {
-      // handle not enough item logging and shit
-    }
-  }
 
   return (
     <StyledHeader>
@@ -28,15 +15,6 @@ const Header = ({ siteTitle }) => {
         <Title>
           <StyledLink to="/">{siteTitle}</StyledLink>
         </Title>
-        <div>
-          <p>
-            Total Price: {formatPrice(totalPrice, 'USD')} <br />
-            Item Count: {cartCount}
-          </p>
-          <button onClick={handleCheckout}>
-            Checkout
-          </button>
-        </div>
       </Wrapper>
     </StyledHeader>
   )
@@ -52,8 +30,6 @@ const Wrapper = styled.div`
   margin: 0 auto;
   width: 100%;
   padding: ${spacing(5)} ${spacing(3)};
-  display: flex;
-  justify-content: space-between;
 `
 
 const Title = styled.h1`

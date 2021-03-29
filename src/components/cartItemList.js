@@ -6,7 +6,7 @@ import CartItem from './cartItem'
 
 const CartItemsList = ({cart}) => (
   <StyledCartList>
-    {cart.length > 0 && cart.map(item => {
+    {cart.map(item => {
       console.log(item)
       return <CartItem {...item} />
     })}
