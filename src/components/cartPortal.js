@@ -2,24 +2,36 @@ import React from 'react'
 import styled from 'styled-components'
 import Portal from '@reach/portal'
 import { useShoppingCart } from 'use-shopping-cart'
-import { formatPrice } from '../utils/helpers'
+
+import CartImage from '../images/svg/shopping-cart.svg'
 
 const CartPortal = ({showCart}) => {
-  const { totalPrice, cartCount } = useShoppingCart()
+  const { cartCount } = useShoppingCart()
   
   return (
     <Portal>
-      <div>
-        <p>
-          Total Price: {formatPrice(totalPrice, 'USD')} <br />
-          Item Count: {cartCount}
-        </p>
-      </div>
-      <button onClick={showCart}>
-        Show Cart
-      </button>
+      <Wrapper onClick={showCart}>
+        <CartImage style={{width: '40px', height: '40px'}} />
+        <Count>{cartCount}</Count>
+      </Wrapper>
     </Portal>
   )
 }
+
+const Wrapper = styled.div`
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+`
+
+const Count = styled.p`
+  display: block;
+  height: 100%;
+  margin: 0;
+`
 
 export default CartPortal
