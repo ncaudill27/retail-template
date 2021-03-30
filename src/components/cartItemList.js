@@ -1,16 +1,19 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { spacing } from '../utils/helpers'
+import { spacing } from "../utils/helpers"
 
 import CartItem from "./cartItem"
+import CartSpacer from "./cartSpacer"
 
 const CartItemsList = ({ cart }) => (
   <StyledCartList>
-    {cart.map(item => {
-      console.log(item)
-      return <CartItem {...item} />
-    })}
+    {cart.map(item => (
+      <>
+        <CartSpacer size={3} />
+        <CartItem {...item} />
+      </>
+    ))}
   </StyledCartList>
 )
 
