@@ -35,10 +35,10 @@ const CartModal = ({ showDialog, closeDialog }) => {
         onDismiss={closeDialog}
         aria-labelledby={label}
       >
-        <h2 id={label}>Your Cart</h2>
-        <button onClick={handleCheckout}>Checkout</button>
+        <CartHeader id={label}>Your Cart</CartHeader>
         <CartItemsList cart={Object.values(cartDetails)} />
         <p>Total: {formatPrice(totalPrice, "USD")}</p>
+        <CheckoutButton onClick={handleCheckout}>Checkout</CheckoutButton>
       </StyledDialog>
     </Portal>
   )
@@ -53,6 +53,23 @@ const StyledDialog = styled(Dialog)`
   margin: ${spacing(12)} auto;
   padding: ${spacing(2)};
   background-color: white;
+`
+
+const CartHeader = styled.h3`
+  text-align: center;
+  margin: 0;
+`
+
+const CheckoutButton = styled.button`
+  outline: none;
+  border: none;
+  width: calc(100% + ${spacing(5)});
+  margin-left: -${spacing(2)};
+  margin-bottom: -${spacing(2)};
+  padding: ${spacing(4)};
+  color: black;
+  text-transform: uppercase;
+  background: ${p => p.theme.colors.secondary.light};
 `
 
 CartModal.propTypes = {
