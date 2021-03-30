@@ -33,9 +33,9 @@ const CartModal = ({ showDialog, closeDialog }) => {
       <StyledDialog
         isOpen={showDialog}
         onDismiss={closeDialog}
-        aria-labelledBy={label}
+        aria-labelledby={label}
       >
-        <h2 id={label}>Cart</h2>
+        <h2 id={label}>Your Cart</h2>
         <button onClick={handleCheckout}>Checkout</button>
         <CartItemsList cart={Object.values(cartDetails)} />
         <p>Total: {formatPrice(totalPrice, "USD")}</p>
@@ -45,15 +45,14 @@ const CartModal = ({ showDialog, closeDialog }) => {
 }
 
 const StyledDialog = styled(Dialog)`
-  position: absolute;
+  position: relative;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  margin: 128px auto auto;
+  margin: ${spacing(12)} auto;
   padding: ${spacing(2)};
   background-color: white;
-  border: 3px solid;
 `
 
 CartModal.propTypes = {

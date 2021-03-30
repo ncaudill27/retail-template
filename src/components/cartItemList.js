@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import { spacing } from '../utils/helpers'
 
 import CartItem from "./cartItem"
 
@@ -14,7 +15,9 @@ const CartItemsList = ({ cart }) => (
 )
 
 const StyledCartList = styled.div`
-  border: 1px solid;
+  margin: -${spacing(2)};
+  padding: ${spacing(2)};
+  background-color: white;
 `
 
 CartItemsList.propTypes = {

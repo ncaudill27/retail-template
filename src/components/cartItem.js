@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { formatPrice } from "../utils/helpers"
+import { formatPrice, spacing } from "../utils/helpers"
 
 const CartItem = ({
   name,
@@ -30,6 +30,7 @@ const StyledCartItem = styled.div`
 `
 
 const ImgWrapper = styled.div`
+  padding: ${spacing(1)} ${spacing(2)};
   width: auto;
   height: 200px;
   margin-left: auto;

@@ -24,7 +24,7 @@ const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
       <StyledDialog
         isOpen={showDialog}
         onDismiss={closeDialog}
-        aria-labelledBy={label}
+        aria-labelledby={label}
       >
         <ProductDetails {...product} labelId={label} />
         <button onClick={handleAddItem}>Add To Cart</button>
