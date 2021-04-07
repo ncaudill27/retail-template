@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import SuccessMessage from "../components/successMessage"
+import SuccessForm from "../components/successForm"
 
 const SuccessPage = () => {
   const { totalPrice } = useShoppingCart()
@@ -15,7 +16,8 @@ const SuccessPage = () => {
   return (
     <Layout>
       <SEO title="success" />
-      <SuccessMessage totalAmount={totalAmount} />
+      <SuccessMessage />
+      <SuccessForm />
     </Layout>
   )
 }
