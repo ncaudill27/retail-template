@@ -1,8 +1,11 @@
 import React from "react"
 
 import { CartProvider } from "use-shopping-cart"
-
 import { loadStripe } from "@stripe/stripe-js"
+
+import { ThemeProvider } from "styled-components"
+import { theme } from "./src/styles/theme"
+
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY)
 
 export const wrapRootElement = ({ element }) => (
@@ -15,6 +18,6 @@ export const wrapRootElement = ({ element }) => (
     allowedCountries={["US"]}
     billingAddressCollection={true}
   >
-    {element}
+    <ThemeProvider theme={theme}>{element}</ThemeProvider>
   </CartProvider>
 )

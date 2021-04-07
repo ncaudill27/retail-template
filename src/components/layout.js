@@ -1,8 +1,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import styled, { ThemeProvider } from "styled-components"
-import { theme } from "../styles/theme"
+import styled from "styled-components"
 import { spacing } from "../utils/helpers"
 
 import Header from "./header"
@@ -20,7 +19,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <Wrapper>
         <main>{children}</main>
@@ -30,7 +29,7 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.com">Gatsby</a>
         </Footer>
       </Wrapper>
-    </ThemeProvider>
+    </>
   )
 }
 
