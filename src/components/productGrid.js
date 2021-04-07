@@ -9,11 +9,11 @@ const ProductGrid = ({ products, handleProductView }) => {
       {products.map(({ node: product }) => {
         console.log(product)
         return (
-        <ProductCard
-          key={product.id}
-          handleProductView={handleProductView}
-          {...product}
-        />
+          <ProductCard
+            key={product.id}
+            handleProductView={handleProductView}
+            {...product}
+          />
         )
       })}
     </Grid>

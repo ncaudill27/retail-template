@@ -5,13 +5,8 @@ import styled, { ThemeProvider } from "styled-components"
 import { theme } from "../styles/theme"
 import { spacing } from "../utils/helpers"
 
-import { CartProvider } from "use-shopping-cart"
-
 import Header from "./header"
 import "./layout.css"
-
-import { loadStripe } from "@stripe/stripe-js"
-const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY)
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,27 +20,17 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <CartProvider
-      mode="client-only"
-      stripe={stripePromise}
-      successUrl="http://localhost:8000/"
-      cancelUrl="http://localhost:8000/failure"
-      currency="USD"
-      allowedCountries={["US"]}
-      billingAddressCollection={true}
-    >
-      <ThemeProvider theme={theme}>
-        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-        <Wrapper>
-          <main>{children}</main>
-          <Footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.com">Gatsby</a>
-          </Footer>
-        </Wrapper>
-      </ThemeProvider>
-    </CartProvider>
+    <ThemeProvider theme={theme}>
+      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Wrapper>
+        <main>{children}</main>
+        <Footer>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.com">Gatsby</a>
+        </Footer>
+      </Wrapper>
+    </ThemeProvider>
   )
 }
 
