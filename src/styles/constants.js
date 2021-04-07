@@ -2,14 +2,14 @@ export const COLORS = {
   text: "black",
   background: "white",
   primary: {
-    main: "#DB2D24",
-    light: "#E25750",
-    dark: "#A3221B",
+    main: "	hsl(3, 72%, 50%)",
+    light: "hsl(3, 72%, 60%)",
+    dark: "	hsl(3, 72%, 37%)",
   },
   secondary: {
-    main: "#24D2DB",
-    light: "#50DBE2",
-    dark: "#1B9EA5",
+    main: "hsl(183, 72%, 50%)",
+    light: "hsl(183, 72%, 60%)",
+    dark: "	hsl(183, 72%, 38%)",
   },
 }
 

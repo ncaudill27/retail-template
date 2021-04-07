@@ -6,13 +6,16 @@ import ProductCard from "./productCard"
 const ProductGrid = ({ products, handleProductView }) => {
   return (
     <Grid>
-      {products.map(({ node: product }) => (
+      {products.map(({ node: product }) => {
+        console.log(product)
+        return (
         <ProductCard
           key={product.id}
           handleProductView={handleProductView}
           {...product}
         />
-      ))}
+        )
+      })}
     </Grid>
   )
 }

@@ -10,8 +10,8 @@ const CartItemsList = ({ cart }) => (
   <StyledCartList>
     {cart.map(item => (
       <>
-        <CartSpacer size={3} />
-        <CartItem {...item} />
+        <CartSpacer key={item.id} size={3} />
+        <CartItem key={item.product_id} {...item} />
       </>
     ))}
   </StyledCartList>
