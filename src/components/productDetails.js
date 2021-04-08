@@ -1,7 +1,7 @@
 import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-import { formatPrice } from "../utils/helpers"
+import { formatPrice, spacing } from "../utils/helpers"
 
 const ProductDetails = ({
   name,
@@ -12,27 +12,32 @@ const ProductDetails = ({
   gatsbyImage,
 }) => {
   return (
-    <RootWrapper>
-      <div>
-        <h2 id={labelId}>{name}</h2>
-        <p>{formatPrice(price, currency)}</p>
-        <p>{description}</p>
-      </div>
+    <>
       <ImgWrapper>
         <GatsbyImage image={gatsbyImage} alt={description} />
       </ImgWrapper>
-    </RootWrapper>
+      <DetailWrapper>
+        <h2 id={labelId}>{name}</h2>
+        <p>{description}</p>
+        <p>{formatPrice(price, currency)}</p>
+      </DetailWrapper>
+    </>
   )
 }
-
-const RootWrapper = styled.div`
-  display: flex;
-`
 
 const ImgWrapper = styled.div`
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
+`
+
+const DetailWrapper = styled.div`
+  position: relative;
+  top: -${spacing(2)};
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: ${spacing(2)};
+  background-color: white;
 `
 
 export default ProductDetails

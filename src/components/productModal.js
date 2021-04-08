@@ -37,13 +37,12 @@ const StyledDialog = styled(Dialog)`
   position: fixed;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
   margin: auto;
-  height: 60vh;
-  padding: ${spacing(2)};
+  height: 100vh;
+  width: 100%;
+  padding: 0;
   background-color: white;
-  border: 3px solid;
 `
 
 ProductModal.propTypes = {
