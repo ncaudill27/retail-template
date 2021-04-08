@@ -17,9 +17,11 @@ const ProductDetails = ({
         <GatsbyImage image={gatsbyImage} alt={description} />
       </ImgWrapper>
       <DetailWrapper>
-        <h2 id={labelId}>{name}</h2>
+        <NamePriceWrapper>
+          <h2 id={labelId}>{name}</h2>
+          <h3>{formatPrice(price, currency)}</h3>
+        </NamePriceWrapper>
         <p>{description}</p>
-        <p>{formatPrice(price, currency)}</p>
       </DetailWrapper>
     </>
   )
@@ -38,6 +40,11 @@ const DetailWrapper = styled.div`
   border-top-right-radius: 20px;
   padding: ${spacing(2)};
   background-color: white;
+`
+
+const NamePriceWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 
 export default ProductDetails

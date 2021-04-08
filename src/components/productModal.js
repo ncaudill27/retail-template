@@ -27,7 +27,9 @@ const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
         aria-labelledby={label}
       >
         <ProductDetails {...product} labelId={label} />
-        <button onClick={handleAddItem}>Add To Cart</button>
+        <ButtonWrapper>
+          <AddToCartBtn onClick={handleAddItem}>Add To Cart</AddToCartBtn>
+        </ButtonWrapper>
       </StyledDialog>
     </Portal>
   )
@@ -43,6 +45,23 @@ const StyledDialog = styled(Dialog)`
   width: 100%;
   padding: 0;
   background-color: white;
+`
+
+const ButtonWrapper = styled.div`
+  position: fixed;
+  bottom: ${spacing(1)};
+  width: 100%;
+  padding: ${spacing(2)};  
+`
+
+const AddToCartBtn = styled.button`
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: ${spacing(1)};
+  background: black;
+  color: white;
+  text-transform: uppercase;
 `
 
 ProductModal.propTypes = {
