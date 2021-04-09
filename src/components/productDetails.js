@@ -19,7 +19,7 @@ const ProductDetails = ({
       <DetailWrapper>
         <NamePriceWrapper>
           <h2 id={labelId}>{name}</h2>
-          <h3>{formatPrice(price, currency)}</h3>
+          <h2>{formatPrice(price, currency)}</h2>
         </NamePriceWrapper>
         <p>{description}</p>
       </DetailWrapper>
@@ -45,6 +45,8 @@ const DetailWrapper = styled.div`
 const NamePriceWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  gap: ${spacing(1)};
 `
 
 export default ProductDetails
