@@ -7,7 +7,7 @@ import { spacing } from "../utils/helpers"
 import Portal from "@reach/portal"
 import Dialog from "@reach/dialog"
 import ProductDetails from "./productDetails"
-import LeftArrow from '../images/svg/left-arrow.svg'
+import BackArrow from './backArrow'
 
 import "@reach/dialog/styles.css"
 
@@ -27,9 +27,7 @@ const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
         onDismiss={closeDialog}
         aria-labelledby={label}
       >
-        <BackWrapper role='button' onClick={closeDialog}>
-          <LeftArrow height='50' width='50' />
-        </BackWrapper>
+        <BackArrow onClick={closeDialog} />
         <ProductDetails {...product} labelId={label} />
         <ButtonWrapper>
           <AddToCartBtn onClick={handleAddItem}>Add To Cart</AddToCartBtn>
@@ -66,14 +64,6 @@ const AddToCartBtn = styled.button`
   background: black;
   color: white;
   text-transform: uppercase;
-`
-
-const BackWrapper = styled.div`
-  position: fixed;
-  display: flex;
-  top: ${spacing(1)};
-  left: ${spacing(1)};
-  z-index: 1;
 `
 
 ProductModal.propTypes = {

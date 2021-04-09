@@ -7,6 +7,7 @@ import { formatPrice, spacing } from "../utils/helpers"
 import Portal from "@reach/portal"
 import Dialog from "@reach/dialog"
 import CartItemsList from "./cartItemList"
+import BackArrow from './backArrow'
 
 const CartModal = ({ showDialog, closeDialog }) => {
   const label = "cart__random-id-number"
@@ -35,6 +36,7 @@ const CartModal = ({ showDialog, closeDialog }) => {
         onDismiss={closeDialog}
         aria-labelledby={label}
       >
+        <BackArrow onClick={closeDialog} />
         <CartHeader id={label}>Your Cart</CartHeader>
         <CartItemsList cart={Object.values(cartDetails)} />
         <p>Total: {formatPrice(totalPrice, "USD")}</p>
@@ -45,19 +47,22 @@ const CartModal = ({ showDialog, closeDialog }) => {
 }
 
 const StyledDialog = styled(Dialog)`
-  position: relative;
+  position: fixed;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
-  margin: ${spacing(12)} auto;
-  padding: ${spacing(2)};
+  margin: auto;
+  height: 100vh;
+  width: 100%;
+  padding: 0;
   background-color: white;
+  overflow-y: scroll;
 `
 
 const CartHeader = styled.h3`
   text-align: center;
   margin: 0;
+  padding-top: ${spacing(2)};
 `
 
 const CheckoutButton = styled.button`
