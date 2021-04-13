@@ -79,4 +79,8 @@ CartModal.propTypes = {
   closeDialog: PropTypes.func.isRequired,
 }
 
+CartModal.defaultProps = {
+  showDialog: false
+}
+
 export default CartModal
