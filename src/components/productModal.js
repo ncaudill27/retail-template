@@ -4,7 +4,6 @@ import styled from "styled-components"
 import { useShoppingCart } from "use-shopping-cart"
 import { spacing } from "../utils/helpers"
 
-import Portal from "@reach/portal"
 import Dialog from "@reach/dialog"
 import ProductDetails from "./productDetails"
 import BackArrow from './backArrow'
@@ -21,19 +20,17 @@ const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
   }
 
   return (
-    <Portal>
-      <StyledDialog
-        isOpen={showDialog}
-        onDismiss={closeDialog}
-        aria-labelledby={label}
-      >
-        <BackArrow onClick={closeDialog} />
-        <ProductDetails {...product} labelId={label} />
-        <ButtonWrapper>
-          <AddToCartBtn onClick={handleAddItem}>Add To Cart</AddToCartBtn>
-        </ButtonWrapper>
-      </StyledDialog>
-    </Portal>
+    <StyledDialog
+      isOpen={showDialog}
+      onDismiss={closeDialog}
+      aria-labelledby={label}
+    >
+      <BackArrow onClick={closeDialog} />
+      <ProductDetails {...product} labelId={label} />
+      <ButtonWrapper>
+        <AddToCartBtn onClick={handleAddItem}>Add To Cart</AddToCartBtn>
+      </ButtonWrapper>
+    </StyledDialog>
   )
 }
 

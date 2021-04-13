@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 import { useShoppingCart } from "use-shopping-cart"
 import { formatPrice, spacing } from "../utils/helpers"
 
-import Portal from "@reach/portal"
 import Dialog from "@reach/dialog"
 import CartItemsList from "./cartItemList"
 import BackArrow from './backArrow'
@@ -30,19 +29,17 @@ const CartModal = ({ showDialog, closeDialog }) => {
   }
 
   return (
-    <Portal>
-      <StyledDialog
-        isOpen={showDialog}
-        onDismiss={closeDialog}
-        aria-labelledby={label}
-      >
-        <BackArrow onClick={closeDialog} />
-        <CartHeader id={label}>Your Cart</CartHeader>
-        <CartItemsList cart={Object.values(cartDetails)} />
-        <p>Total: {formatPrice(totalPrice, "USD")}</p>
-        <CheckoutButton onClick={handleCheckout}>Checkout</CheckoutButton>
-      </StyledDialog>
-    </Portal>
+    <StyledDialog
+      isOpen={showDialog}
+      onDismiss={closeDialog}
+      aria-labelledby={label}
+    >
+      <BackArrow onClick={closeDialog} />
+      <CartHeader id={label}>Your Cart</CartHeader>
+      <CartItemsList cart={Object.values(cartDetails)} />
+      <p>Total: {formatPrice(totalPrice, "USD")}</p>
+      <CheckoutButton onClick={handleCheckout}>Checkout</CheckoutButton>
+    </StyledDialog>
   )
 }
 
