@@ -5,8 +5,9 @@ import { useShoppingCart } from "use-shopping-cart"
 import { formatPrice, spacing } from "../utils/helpers"
 
 import Dialog from "@reach/dialog"
-import CartItemsList from "./cartItemList"
 import BackArrow from './backArrow'
+import CartItemsList from "./cartItemList"
+import CartSpacer from './cartSpacer'
 
 const CartModal = ({ showDialog, closeDialog }) => {
   const label = "cart__random-id-number"
@@ -37,7 +38,11 @@ const CartModal = ({ showDialog, closeDialog }) => {
       <BackArrow onClick={closeDialog} />
       <CartHeader id={label}>Your Cart</CartHeader>
       <CartItemsList cart={Object.values(cartDetails)} />
-      <p>Total: {formatPrice(totalPrice, "USD")}</p>
+      <CartSpacer size={3} />
+      <SubTotal>
+        <h4>Sub-total</h4>
+        <p>{formatPrice(totalPrice, "USD")}</p>
+      </SubTotal>
       <CheckoutButton onClick={handleCheckout}>Checkout</CheckoutButton>
     </StyledDialog>
   )
@@ -62,12 +67,23 @@ const CartHeader = styled.h3`
   padding-top: ${spacing(2)};
 `
 
+const SubTotal = styled.div`
+  text-align: center;
+  padding-bottom: ${spacing(3)};
+
+  h4 {
+    text-decoration: underline;
+    margin-bottom: 0.75em;
+  }
+
+  p { margin: 0; }
+  
+`
+
 const CheckoutButton = styled.button`
   outline: none;
   border: none;
-  width: calc(100% + ${spacing(5)});
-  margin-left: -${spacing(2)};
-  margin-bottom: -${spacing(2)};
+  width: 100%;
   padding: ${spacing(4)};
   color: black;
   text-transform: uppercase;
