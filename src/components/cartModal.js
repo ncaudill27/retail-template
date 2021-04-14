@@ -5,9 +5,9 @@ import { useShoppingCart } from "use-shopping-cart"
 import { formatPrice, spacing } from "../utils/helpers"
 
 import Dialog from "@reach/dialog"
-import BackArrow from './backArrow'
+import BackArrow from "./backArrow"
 import CartItemsList from "./cartItemList"
-import CartSpacer from './cartSpacer'
+import CartSpacer from "./cartSpacer"
 
 const CartModal = ({ showDialog, closeDialog }) => {
   const label = "cart__random-id-number"
@@ -76,8 +76,9 @@ const SubTotal = styled.div`
     margin-bottom: 0.75em;
   }
 
-  p { margin: 0; }
-  
+  p {
+    margin: 0;
+  }
 `
 
 const CheckoutButton = styled.button`
@@ -96,7 +97,7 @@ CartModal.propTypes = {
 }
 
 CartModal.defaultProps = {
-  showDialog: false
+  showDialog: false,
 }
 
 export default CartModal

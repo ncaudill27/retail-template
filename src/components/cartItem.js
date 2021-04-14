@@ -1,9 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { spacing } from '../utils/helpers'
+import { spacing } from "../utils/helpers"
+
+import InputQuantity from "./inputQuantity"
 
 const CartItem = ({
+  id,
   name,
   quantity,
   description,
@@ -12,16 +15,13 @@ const CartItem = ({
 }) => (
   <StyledCartItem>
     <ImageNameWrapper>
-      <Image
-        image={gatsbyImage}
-        alt={description}
-      />
+      <Image image={gatsbyImage} alt={description} />
       <Name>{name}</Name>
     </ImageNameWrapper>
     <PricingWrapper>
       <PricingBox>
         <h6>Quantity</h6>
-        <p>{quantity}</p>
+        <InputQuantity id={id} quantity={quantity} />
       </PricingBox>
       <AtSign>&#64;</AtSign>
       <PricingBox>
@@ -79,7 +79,9 @@ const PricingBox = styled.div`
     font-weight: bold;
   }
 
-  p { margin: 0; }
+  p {
+    margin: 0;
+  }
 `
 
 const AtSign = styled.span`

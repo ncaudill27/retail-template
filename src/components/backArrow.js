@@ -1,12 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
-import { spacing } from '../utils/helpers'
+import React from "react"
+import styled from "styled-components"
+import { spacing } from "../utils/helpers"
 
-import LeftArrow from '../images/svg/left-arrow.svg'
+import LeftArrow from "../images/svg/left-arrow.svg"
 
-const BackArrow = (props) => (
-  <BackWrapper {...props} role='button'>
-              <LeftArrow height='50' width='50' />
+const BackArrow = props => (
+  <BackWrapper {...props} role="button">
+    <LeftArrow height="50" width="50" />
   </BackWrapper>
 )
 

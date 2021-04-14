@@ -6,7 +6,7 @@ import { spacing } from "../utils/helpers"
 
 import Dialog from "@reach/dialog"
 import ProductDetails from "./productDetails"
-import BackArrow from './backArrow'
+import BackArrow from "./backArrow"
 
 import "@reach/dialog/styles.css"
 
@@ -50,7 +50,7 @@ const ButtonWrapper = styled.div`
   position: fixed;
   bottom: ${spacing(1)};
   width: 100%;
-  padding: ${spacing(2)};  
+  padding: ${spacing(2)};
 `
 
 const AddToCartBtn = styled.button`
