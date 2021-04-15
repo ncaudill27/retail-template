@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { useShoppingCart } from "use-shopping-cart"
 
 const InputQuantity = ({ id, quantity }) => {
-  const { incrementItem, decrementItem } = useShoppingCart()
+  const { incrementItem, decrementItem, removeItem } = useShoppingCart()
 
   const [loading, setLoading] = useState(false)
 
@@ -15,7 +15,15 @@ const InputQuantity = ({ id, quantity }) => {
 
   const handleDecrement = id => async e => {
     await setLoading(true)
-    await decrementItem(id)
+
+    if (quantity <= 1) {
+      // remove item and escape function to avoid memory leak
+      removeItem(id)
+      return
+    } else {
+      await decrementItem(id)
+    }
+
     setLoading(false)
   }
 

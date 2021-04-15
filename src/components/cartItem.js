@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { spacing } from "../utils/helpers"
 
+import CartSpacer from "./cartSpacer"
 import InputQuantity from "./inputQuantity"
 
 const CartItem = ({
@@ -13,23 +14,26 @@ const CartItem = ({
   gatsbyImage,
   formattedValue,
 }) => (
-  <StyledCartItem>
-    <ImageNameWrapper>
-      <Image image={gatsbyImage} alt={description} />
-      <Name>{name}</Name>
-    </ImageNameWrapper>
-    <PricingWrapper>
-      <PricingBox>
-        <h6>Quantity</h6>
-        <InputQuantity id={id} quantity={quantity} />
-      </PricingBox>
-      <AtSign>&#64;</AtSign>
-      <PricingBox>
-        <h6>Total</h6>
-        <p>{formattedValue}</p>
-      </PricingBox>
-    </PricingWrapper>
-  </StyledCartItem>
+  <>
+    <CartSpacer size={3} />
+    <StyledCartItem>
+      <ImageNameWrapper>
+        <Image image={gatsbyImage} alt={description} />
+        <Name>{name}</Name>
+      </ImageNameWrapper>
+      <PricingWrapper>
+        <PricingBox>
+          <h6>Quantity</h6>
+          <InputQuantity id={id} quantity={quantity} />
+        </PricingBox>
+        <AtSign>&#64;</AtSign>
+        <PricingBox>
+          <h6>Total</h6>
+          <p>{formattedValue}</p>
+        </PricingBox>
+      </PricingWrapper>
+    </StyledCartItem>
+  </>
 )
 
 const StyledCartItem = styled.div`
