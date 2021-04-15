@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from 'prop-types'
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { formatPrice, spacing } from "../utils/helpers"
@@ -48,14 +49,26 @@ const CopyWrapper = styled.div`
   border-top-right-radius: 20px;
   padding: ${spacing(2)};
   background-color: white;
+  overflow-y: scroll;
 `
 
 const NamePriceWrapper = styled.div`
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: ${spacing(1)};
   margin-bottom: ${spacing(3)};
 `
+
+ProductDetails.propTypes = {
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  labelId: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  gatsbyImage: PropTypes.object.isRequired,
+}
 
 export default ProductDetails

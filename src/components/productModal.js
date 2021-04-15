@@ -35,7 +35,7 @@ const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
 }
 
 const StyledDialog = styled(Dialog)`
-  position: fixed;
+  position: relative;
   top: 0;
   right: 0;
   left: 0;
@@ -47,8 +47,8 @@ const StyledDialog = styled(Dialog)`
 `
 
 const ButtonWrapper = styled.div`
-  position: fixed;
-  bottom: ${spacing(1)};
+  position: absolute;
+  bottom: ${spacing(0)};
   width: 100%;
   padding: ${spacing(2)};
 `
