@@ -13,8 +13,8 @@ const ProductDetails = ({
 }) => {
   return (
     <>
-      <ImgWrapper>
-        <GatsbyImage image={gatsbyImage} alt={description} />
+      <ImgWrapper style={{'--background-color': gatsbyImage.backgroundColor}}>
+        <Image image={gatsbyImage} alt={description} />
       </ImgWrapper>
       <CopyWrapper>
         <NamePriceWrapper>
@@ -28,6 +28,14 @@ const ProductDetails = ({
 }
 
 const ImgWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+`
+
+const Image = styled(GatsbyImage)`
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
