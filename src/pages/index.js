@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
+import { useShoppingCart } from 'use-shopping-cart'
 
 import CartPortal from "../components/cartPortal"
 import ProductGrid from "../components/productGrid"
@@ -10,6 +11,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
+  const { cartCount } = useShoppingCart()
+  
   const [showProductDialog, setShowProductDialog] = useState(false)
   const openProductDialog = () => setShowProductDialog(true)
   const closeProductDialog = () => setShowProductDialog(false)
@@ -28,7 +31,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <CartPortal showCart={openCartDialog} />
+      { cartCount > 0 && <CartPortal showCart={openCartDialog} /> }
       <ProductGrid
         products={data.products.edges}
         handleProductView={handleProductView}
