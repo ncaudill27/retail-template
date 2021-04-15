@@ -1,8 +1,10 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { incrementItem, decrementItem } from "use-shopping-cart"
+import { useShoppingCart } from "use-shopping-cart"
 
 const InputQuantity = ({ id, quantity }) => {
+  const { incrementItem, decrementItem } = useShoppingCart()
+
   const [loading, setLoading] = useState(false)
 
   const handleIncrement = id => async e => {
@@ -11,8 +13,7 @@ const InputQuantity = ({ id, quantity }) => {
     setLoading(false)
   }
 
-  const handleDecrement = async e => {
-    console.log(id)
+  const handleDecrement = id => async e => {
     await setLoading(true)
     await decrementItem(id)
     setLoading(false)
@@ -20,11 +21,11 @@ const InputQuantity = ({ id, quantity }) => {
 
   return (
     <Wrapper>
-      <Button onClick={handleDecrement} disabled={loading}>
+      <Button onClick={handleDecrement(id)} disabled={loading}>
         &#45;
       </Button>
       <Input value={quantity} readOnly disabled={loading} />
-      <Button onClick={handleIncrement} disabled={loading}>
+      <Button onClick={handleIncrement(id)} disabled={loading}>
         &#43;
       </Button>
     </Wrapper>
