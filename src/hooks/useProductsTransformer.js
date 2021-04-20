@@ -4,14 +4,20 @@ export default function useProductsTransformer(stripeData) {
 
   const memo = {}
 
-  const transformedProducts = stripeData.map(({node: product}) => {
-    
-    product = transformProduct(product, memo)
-    console.log(product);
-    return product
+  stripeData.map(({node: product}) => {
+    transformProduct(product, memo)
   })
 
-  return transformedProducts
+  return Object.values(memo)
+}
+
+function transformProduct(productData, memo) {
+  let product
+  product = flattenProduct(productData)
+  product = handleMemoizedObject(product, memo)
+  memoize(product, memo)
+  // TODO add cleanup to remove properties unused by frontend
+  return product
 }
 
 // check if product with same name has been added
@@ -37,14 +43,6 @@ function handleMemoizedObject(newProduct, memo) {
   }
 }
 
-function transformProduct(productData, memo) {
-  let product
-  product = flattenProduct(productData)
-  product = handleMemoizedObject(product, memo)
-  memoize(product, memo)
-  return product
-}
-
 // changes structure of Stripe API data to be more legible and workable
 function flattenProduct({
   id,
@@ -65,14 +63,14 @@ function flattenProduct({
   }
 }
 
-// adds displayed images property
-// adds new entry to array if existing
+// adds displayedImages property
 function updateDisplayedImages(product, memo, image) {
   const newImageData = getImage(image.find(Boolean))
 
 
   const displayedImages =
     isMemo(product, memo)
+      // uses a Set to filter out differing price points that use the same image
       ? [new Set([...product.displayedImages, newImageData])]
       : [newImageData]
 
