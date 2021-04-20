@@ -20,6 +20,26 @@ function transformProduct(productData, memo) {
   return product
 }
 
+// changes structure of Stripe API data to be more legible and workable
+function flattenProduct({
+  id,
+  active,
+  currency,
+  unit_amount: price,
+  product: { id: product_id, name, image, description },
+}) {
+   return {
+    name,
+    id,
+    price,
+    image,
+    currency,
+    active,
+    product_id,
+    description,
+  }
+}
+
 // check if product with same name has been added
 const isMemo = ({name}, memo) => !!memo[name]
 const memoize = (product, memo) => memo[product.name] = product
@@ -40,26 +60,6 @@ function handleMemoizedObject(newProduct, memo) {
     newProduct = updateDisplayedImages(newProduct, memo, newProduct.image)
     // and return the current product
     return newProduct
-  }
-}
-
-// changes structure of Stripe API data to be more legible and workable
-function flattenProduct({
-  id,
-  active,
-  currency,
-  unit_amount: price,
-  product: { id: product_id, name, image, description },
-}) {
-   return {
-    name,
-    id,
-    price,
-    image,
-    currency,
-    active,
-    product_id,
-    description,
   }
 }
 
