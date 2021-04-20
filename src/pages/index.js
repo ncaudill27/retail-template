@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { useShoppingCart } from 'use-shopping-cart'
+import useProductsTransformer from '../hooks/useProductsTransformer'
 
 import CartPortal from "../components/cartPortal"
 import ProductGrid from "../components/productGrid"
@@ -28,6 +29,9 @@ const IndexPage = ({ data }) => {
     openProductDialog()
   }
 
+  const transformedProducts = useProductsTransformer(data.products.edges)
+
+  console.log(transformedProducts)
   return (
     <Layout>
       <SEO title="Home" />
