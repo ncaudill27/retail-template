@@ -5,7 +5,6 @@ export default function useProductsTransformer(stripeData) {
   const memo = {}
 
   const transformedProducts = stripeData.map(({node: product}) => {
-    console.log(product);
     
     product = transformProduct(product, memo)
     console.log(product);
@@ -21,23 +20,27 @@ const memoize = (product, memo) => memo[product.name] = product
 
 // checks if Stripe Product already exists by name
 // we want to data from multiple products name together into the same object
-function findMemoizedObject(product, memo) {
+function handleMemoizedObject(newProduct, memo) {
 // look for product products with matching names
-  if ( isMemo(product, memo) ) {
-    // if we find the product we return it
-    return memo[product.name]
+  if ( isMemo(newProduct, memo) ) {
+    // if we find the product we update it with the new data
+    let memoProduct = memo[newProduct.name]
+    memoProduct = updatePriceIds(memoProduct, memo, newProduct.id, newProduct.price)
+    memoProduct = updateDisplayedImages(memoProduct, memo, newProduct.image)
+    return memoProduct
   } else {
+
+    newProduct = updatePriceIds(newProduct, memo, newProduct.id, newProduct.price)
+    newProduct = updateDisplayedImages(newProduct, memo, newProduct.image)
     // and return the current product
-    return product
+    return newProduct
   }
 }
 
 function transformProduct(productData, memo) {
   let product
   product = flattenProduct(productData)
-  product = findMemoizedObject(product, memo)
-  product = updatePriceIds(product, memo)
-  product = updateDisplayedImages(product, memo)
+  product = handleMemoizedObject(product, memo)
   memoize(product, memo)
   return product
 }
@@ -64,13 +67,14 @@ function flattenProduct({
 
 // adds displayed images property
 // adds new entry to array if existing
-function updateDisplayedImages(product, memo) {
-  const gatsbyImage = getImage(product.image.find(Boolean))
+function updateDisplayedImages(product, memo, image) {
+  const newImageData = getImage(image.find(Boolean))
+
 
   const displayedImages =
     isMemo(product, memo)
-      ? [...product.displayedImages, gatsbyImage]
-      : [gatsbyImage]
+      ? [new Set([...product.displayedImages, newImageData])]
+      : [newImageData]
 
   // spread (copy) product and add displayedImages property
   return {
@@ -81,8 +85,8 @@ function updateDisplayedImages(product, memo) {
 
 // adds priceIds property to allow for consolidation of various price points
 // if priceIds property already exists adds new entry
-function updatePriceIds(product, memo) {
-  const newPriceProp = { id: product.id, price: product.price }
+function updatePriceIds(product, memo, id, price) {
+  const newPriceProp = { id, price }
 
   const priceIds = 
     isMemo(product, memo)
