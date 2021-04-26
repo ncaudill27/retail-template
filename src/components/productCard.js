@@ -3,7 +3,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { formatPrice, spacing } from "../utils/helpers"
 
-const ProductCard = (product) => {
+const ProductCard = product => {
   const {
     id,
     name,
@@ -15,7 +15,7 @@ const ProductCard = (product) => {
     product_id,
     description,
     displayedImages,
-    handleProductView
+    handleProductView,
   } = product
 
   const imageEl = useRef()

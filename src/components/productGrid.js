@@ -7,7 +7,7 @@ const ProductGrid = ({ products, handleProductView }) => {
   console.log(products)
   return (
     <Grid>
-      {products.map( product => (
+      {products.map(product => (
         <ProductCard
           key={product.id}
           handleProductView={handleProductView}

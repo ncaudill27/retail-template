@@ -1,10 +1,9 @@
-import { getImage } from 'gatsby-plugin-image'
+import { getImage } from "gatsby-plugin-image"
 
 export default function useProductsTransformer(stripeData) {
-
   const memo = {}
 
-  stripeData.map(({node: product}) => {
+  stripeData.map(({ node: product }) => {
     transformProduct(product, memo)
   })
 
@@ -28,7 +27,7 @@ function flattenProduct({
   unit_amount: price,
   product: { id: product_id, name, image, description },
 }) {
-   return {
+  return {
     name,
     id,
     price,
@@ -41,22 +40,31 @@ function flattenProduct({
 }
 
 // check if product with same name has been added
-const isMemo = ({name}, memo) => !!memo[name]
-const memoize = (product, memo) => memo[product.name] = product
+const isMemo = ({ name }, memo) => !!memo[name]
+const memoize = (product, memo) => (memo[product.name] = product)
 
 // checks if Stripe Product already exists by name
 // we want to data from multiple products name together into the same object
 function handleMemoizedObject(newProduct, memo) {
-// look for product products with matching names
-  if ( isMemo(newProduct, memo) ) {
+  // look for product products with matching names
+  if (isMemo(newProduct, memo)) {
     // if we find the product we update it with the new data
     let memoProduct = memo[newProduct.name]
-    memoProduct = updatePriceIds(memoProduct, memo, newProduct.id, newProduct.price)
+    memoProduct = updatePriceIds(
+      memoProduct,
+      memo,
+      newProduct.id,
+      newProduct.price
+    )
     memoProduct = updateDisplayedImages(memoProduct, memo, newProduct.image)
     return memoProduct
   } else {
-
-    newProduct = updatePriceIds(newProduct, memo, newProduct.id, newProduct.price)
+    newProduct = updatePriceIds(
+      newProduct,
+      memo,
+      newProduct.id,
+      newProduct.price
+    )
     newProduct = updateDisplayedImages(newProduct, memo, newProduct.image)
     // and return the current product
     return newProduct
@@ -67,17 +75,15 @@ function handleMemoizedObject(newProduct, memo) {
 function updateDisplayedImages(product, memo, image) {
   const newImageData = getImage(image.find(Boolean))
 
-
-  const displayedImages =
-    isMemo(product, memo)
-      // uses a Set to filter out differing price points that use the same image
-      ? [...new Set([...product.displayedImages, newImageData])]
-      : [newImageData]
+  const displayedImages = isMemo(product, memo)
+    ? // uses a Set to filter out differing price points that use the same image
+      [...new Set([...product.displayedImages, newImageData])]
+    : [newImageData]
 
   // spread (copy) product and add displayedImages property
   return {
     ...product,
-    displayedImages
+    displayedImages,
   }
 }
 
@@ -86,14 +92,13 @@ function updateDisplayedImages(product, memo, image) {
 function updatePriceIds(product, memo, id, price) {
   const newPriceProp = { id, price }
 
-  const priceIds = 
-    isMemo(product, memo)
-      ? [...product.priceIds, newPriceProp]
-      : [newPriceProp]
+  const priceIds = isMemo(product, memo)
+    ? [...product.priceIds, newPriceProp]
+    : [newPriceProp]
 
   // spread (copy) product and add priceIds property
   return {
     ...product,
-    priceIds
+    priceIds,
   }
 }

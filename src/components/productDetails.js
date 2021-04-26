@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { formatPrice, spacing } from "../utils/helpers"
@@ -14,7 +14,9 @@ const ProductDetails = ({
 }) => {
   return (
     <>
-      <ImgWrapper style={{'--background-color': displayedImages[0].backgroundColor}}>
+      <ImgWrapper
+        style={{ "--background-color": displayedImages[0].backgroundColor }}
+      >
         <Image image={displayedImages[0]} alt={description} />
       </ImgWrapper>
       <CopyWrapper>
