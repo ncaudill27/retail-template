@@ -10,12 +10,12 @@ const ProductDetails = ({
   labelId,
   currency,
   description,
-  gatsbyImage,
+  displayedImages,
 }) => {
   return (
     <>
-      <ImgWrapper style={{'--background-color': gatsbyImage.backgroundColor}}>
-        <Image image={gatsbyImage} alt={description} />
+      <ImgWrapper style={{'--background-color': displayedImages[0].backgroundColor}}>
+        <Image image={displayedImages[0]} alt={description} />
       </ImgWrapper>
       <CopyWrapper>
         <NamePriceWrapper>

@@ -71,7 +71,7 @@ function updateDisplayedImages(product, memo, image) {
   const displayedImages =
     isMemo(product, memo)
       // uses a Set to filter out differing price points that use the same image
-      ? [new Set([...product.displayedImages, newImageData])]
+      ? [...new Set([...product.displayedImages, newImageData])]
       : [newImageData]
 
   // spread (copy) product and add displayedImages property

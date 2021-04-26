@@ -4,9 +4,10 @@ import styled from "styled-components"
 import ProductCard from "./productCard"
 
 const ProductGrid = ({ products, handleProductView }) => {
+  console.log(products)
   return (
     <Grid>
-      {products.map(({ node: product }) => (
+      {products.map( product => (
         <ProductCard
           key={product.id}
           handleProductView={handleProductView}

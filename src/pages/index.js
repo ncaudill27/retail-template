@@ -31,13 +31,12 @@ const IndexPage = ({ data }) => {
 
   const transformedProducts = useProductsTransformer(data.products.edges)
 
-  console.log(transformedProducts)
   return (
     <Layout>
       <SEO title="Home" />
       { cartCount > 0 && <CartPortal showCart={openCartDialog} /> }
       <ProductGrid
-        products={data.products.edges}
+        products={transformedProducts}
         handleProductView={handleProductView}
       />
       <ProductModal

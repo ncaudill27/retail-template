@@ -1,30 +1,22 @@
 import React, { useState, useRef, useEffect } from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { formatPrice, spacing } from "../utils/helpers"
 
-const ProductCard = ({
-  id,
-  active,
-  currency,
-  unit_amount: price,
-  handleProductView,
-  product: { id: product_id, name, image, description },
-}) => {
-  // TODO add product transformer abstraction
-  const gatsbyImage = getImage(image.find(Boolean))
-
-  const flatProduct = {
-    name,
+const ProductCard = (product) => {
+  const {
     id,
+    name,
     price,
     image,
-    currency,
     active,
+    priceIds,
+    currency,
     product_id,
     description,
-    gatsbyImage,
-  }
+    displayedImages,
+    handleProductView
+  } = product
 
   const imageEl = useRef()
   const copyEl = useRef()
@@ -40,9 +32,9 @@ const ProductCard = ({
   // e.g. when a phone gets turned sideways
 
   return (
-    <StyledCard span={gridRowEnd} onClick={handleProductView(flatProduct)}>
+    <StyledCard span={gridRowEnd} onClick={handleProductView(product)}>
       <ImgWrapper ref={imageEl}>
-        <GatsbyImage image={gatsbyImage} alt={description} />
+        <GatsbyImage image={displayedImages.find(Boolean)} alt={description} />
       </ImgWrapper>
       <CopyWrapper ref={copyEl}>
         <CardTitle>{name}</CardTitle>
