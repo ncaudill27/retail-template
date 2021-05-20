@@ -34,11 +34,11 @@ const ALL_PRODUCTS_QUERY = gql`
 `
 
 const InventoryPage = ({
-  data: pageQuery
+  data
 }) => {
-  console.log(pageQuery)
+  console.log(data)
 
-  const { loading, error, data } = useQuery(ALL_PRODUCTS_QUERY)
+  const { loading, error, data: apolloData } = useQuery(ALL_PRODUCTS_QUERY)
 
   // const handleClick = async e => {
   //   const client = await fetch("./netlify/functions/fauna-graphql", {
@@ -52,7 +52,7 @@ const InventoryPage = ({
 
   console.log('Loading: ', loading)
   console.log('Error: ', error)
-  console.log('Data: ', data)
+  console.log('Data: ', apolloData)
   return (
     <Layout>
       <SEO title="Inventory" />
@@ -63,22 +63,32 @@ const InventoryPage = ({
 }
 
 export const query = graphql`
-  query {
-    products: allStripePrice {
+  query ProductInventory {
+    products: allStripePrice(
+      filter: { active: { eq: true } }
+      sort: { fields: [unit_amount] }
+    ) {
       edges {
         node {
           id
+          active
           unit_amount
           product {
+            id
             name
-            images
+            description
             metadata {
-              colors
-              fuckyouttest
-              large
               small
+              large
+              fuckyouttest
+            }
+            image: localFiles {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
+          currency
         }
       }
     }
@@ -89,9 +99,9 @@ InventoryPage.defaultProps = {
   data: {},
 }
 
-const InventoryPageWithProvider = () => (
+const InventoryPageWithProvider = (props) => (
   <ApolloProvider client={client}>
-    <InventoryPage />
+    <InventoryPage {...props} />
   </ApolloProvider>
 )
 export default InventoryPageWithProvider
