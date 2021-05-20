@@ -12,24 +12,30 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
+  // check cartCount to determine whether to render CartPortal
   const { cartCount } = useShoppingCart()
 
+  // transform data from Stripe Products
+  const transformedProducts = useProductsTransformer(data?.products?.edges)
+  console.log(transformedProducts)
+  // state actions for viewing more details of a single product
   const [showProductDialog, setShowProductDialog] = useState(false)
   const openProductDialog = () => setShowProductDialog(true)
   const closeProductDialog = () => setShowProductDialog(false)
+  // the actual product being displayed
+  const [dialogProduct, setDialogProduct] = useState({})
 
+  // state actions for viewing current cart
   const [showCartDialog, setShowCartDialog] = useState(false)
   const openCartDialog = () => setShowCartDialog(true)
   const closeCartDialog = () => setShowCartDialog(false)
 
-  const [dialogProduct, setDialogProduct] = useState({})
-
+  // function allows for passing of a product from
+  // layout view (ProductGrid) -> detailed view (ProductModal)
   const handleProductView = product => e => {
     setDialogProduct(product)
     openProductDialog()
   }
-
-  const transformedProducts = useProductsTransformer(data.products.edges)
 
   return (
     <Layout>
@@ -53,6 +59,7 @@ const IndexPage = ({ data }) => {
     </Layout>
   )
 }
+
 export const query = graphql`
   query ProductPrices {
     products: allStripePrice(
@@ -68,6 +75,11 @@ export const query = graphql`
             id
             name
             description
+            metadata {
+              small
+              large
+              fuckyouttest
+            }
             image: localFiles {
               childImageSharp {
                 gatsbyImageData
@@ -80,5 +92,9 @@ export const query = graphql`
     }
   }
 `
+
+IndexPage.defaultProps = {
+  data: {},
+}
 
 export default IndexPage

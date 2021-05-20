@@ -3,7 +3,7 @@ import { getImage } from "gatsby-plugin-image"
 export default function useProductsTransformer(stripeData) {
   const memo = {}
 
-  stripeData.map(({ node: product }) => {
+  stripeData.forEach(({ node: product }) => {
     transformProduct(product, memo)
   })
 
@@ -22,18 +22,17 @@ function transformProduct(productData, memo) {
 // changes structure of Stripe API data to be more legible and workable
 function flattenProduct({
   id,
-  active,
   currency,
   unit_amount: price,
-  product: { id: product_id, name, image, description },
+  product: { id: product_id, name, image, description, metadata },
 }) {
   return {
-    name,
     id,
+    name,
     price,
     image,
     currency,
-    active,
+    metadata,
     product_id,
     description,
   }
@@ -57,6 +56,7 @@ function handleMemoizedObject(newProduct, memo) {
       newProduct.price
     )
     memoProduct = updateDisplayedImages(memoProduct, memo, newProduct.image)
+    memoProduct = updateProductOptions(memoProduct, memo, newProduct.metadata)
     return memoProduct
   } else {
     newProduct = updatePriceIds(
@@ -66,6 +66,7 @@ function handleMemoizedObject(newProduct, memo) {
       newProduct.price
     )
     newProduct = updateDisplayedImages(newProduct, memo, newProduct.image)
+    newProduct = updateProductOptions(newProduct, memo, newProduct.metadata)
     // and return the current product
     return newProduct
   }
@@ -90,7 +91,7 @@ function updateDisplayedImages(product, memo, image) {
 // adds priceIds property to allow for consolidation of various price points
 // if priceIds property already exists adds new entry
 function updatePriceIds(product, memo, id, price) {
-  const newPriceProp = { id, price }
+  const newPriceProp = { [id]: price }
 
   const priceIds = isMemo(product, memo)
     ? [...product.priceIds, newPriceProp]
@@ -100,5 +101,29 @@ function updatePriceIds(product, memo, id, price) {
   return {
     ...product,
     priceIds,
+  }
+}
+
+// adds productOptions property derived from Stripe Product metadata to facilitate
+// products with price points dependant on certain options
+function updateProductOptions(product, memo, newMetadata) {
+  // remove null values from metadata at each pass to prevent overwrite of memo data
+  for (var propName in newMetadata) {
+    if (newMetadata[propName] === null || newMetadata[propName] === undefined) {
+      delete newMetadata[propName]
+    }
+  }
+
+  const productOptions = isMemo(product, memo)
+    ? {
+        ...product.productOptions,
+        // any null values recieved here would overwrite memo data
+        ...newMetadata,
+      }
+    : { ...newMetadata }
+
+  return {
+    ...product,
+    productOptions,
   }
 }

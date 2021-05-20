@@ -8,6 +8,8 @@
     "@reach/dialog": "^0.13.2",
     "@reach/portal": "^0.13.2",
     "@stripe/stripe-js": "^1.13.2",
+    "apollo-link-http": "^1.5.17",
+    "apollo-server-lambda": "^2.24.0",
     "gatsby": "^3.1.1",
     "gatsby-background-image": "^1.5.0",
     "gatsby-plugin-gatsby-cloud": "^2.1.0",

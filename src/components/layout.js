@@ -5,6 +5,7 @@ import styled from "styled-components"
 import { spacing } from "../utils/helpers"
 
 import Header from "./header"
+// TODO switch from generic gatsby css reset
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -20,7 +21,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header siteTitle={data?.site?.siteMetadata?.title || `Title`} />
       <Wrapper>
         <main>{children}</main>
         <Footer>
@@ -36,6 +37,10 @@ const Layout = ({ children }) => {
 const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 960px;
+  /* 
+    TODO find a cleaner way to handle spacing
+    using css variables
+  */
   padding-bottom: ${spacing(0)};
 `
 

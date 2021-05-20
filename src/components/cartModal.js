@@ -10,6 +10,7 @@ import CartItemsList from "./cartItemList"
 import CartSpacer from "./cartSpacer"
 
 const CartModal = ({ showDialog, closeDialog }) => {
+  // aria-labelledby generator
   const label = "cart__random-id-number"
   const {
     cartDetails,
@@ -18,11 +19,15 @@ const CartModal = ({ showDialog, closeDialog }) => {
     redirectToCheckout,
   } = useShoppingCart()
 
+  // handles sending of information to Stripe Checkout API using use-shopping-cart helper
   const handleCheckout = async e => {
     e.preventDefault()
 
     if (cartCount > 0) {
       const error = await redirectToCheckout()
+      // TODO handle errors more neatly
+      // possibly using an "error" state to manage screen popup
+      // or simply use CartProvider cancelUrl functionality from use-shopping-cart
       if (error) console.warn("Error bro")
     } else {
       // handle not enough item logging and shit

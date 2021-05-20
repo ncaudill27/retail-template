@@ -5,14 +5,9 @@ import { formatPrice, spacing } from "../utils/helpers"
 
 const ProductCard = product => {
   const {
-    id,
     name,
     price,
-    image,
-    active,
-    priceIds,
     currency,
-    product_id,
     description,
     displayedImages,
     handleProductView,
@@ -22,17 +17,22 @@ const ProductCard = product => {
   const copyEl = useRef()
   const [gridRowEnd, setGridRowEnd] = useState(`span 21`)
 
+  //! revisit this entire hook. Not working correctly
+  //! consider useImperitiveHandle
   useEffect(() => {
     const imgHeight = imageEl.current.getBoundingClientRect().height
     const copyHeight = copyEl.current.getBoundingClientRect().height
     const rowEnd = Math.floor(imgHeight / 20 + copyHeight / 20 + 2)
     setGridRowEnd(`span ${rowEnd}`)
-  }, [imageEl, copyEl]) //TODO add useWidth hook to dependencies
+  }, [imageEl, copyEl, gridRowEnd]) //TODO add useWidth hook to dependencies
   // useWidth hook allows for element to be properly placed after window resizing
   // e.g. when a phone gets turned sideways
 
   return (
-    <StyledCard span={gridRowEnd} onClick={handleProductView(product)}>
+    <StyledCard
+      style={{ "--grid-row-end": gridRowEnd }}
+      onClick={handleProductView(product)}
+    >
       <ImgWrapper ref={imageEl}>
         <GatsbyImage image={displayedImages.find(Boolean)} alt={description} />
       </ImgWrapper>
@@ -47,7 +47,7 @@ const ProductCard = product => {
 const StyledCard = styled.div`
   width: 100%;
   height: 100%;
-  grid-row-end: ${p => p.span};
+  grid-row-end: var(--grid-row-end);
 `
 
 const ImgWrapper = styled.div`

@@ -11,14 +11,14 @@ const CartItem = ({
   name,
   quantity,
   description,
-  gatsbyImage,
+  displayedImages,
   formattedValue,
 }) => (
   <>
     <CartSpacer size={3} />
     <StyledCartItem>
       <ImageNameWrapper>
-        <Image image={gatsbyImage} alt={description} />
+        <Image image={displayedImages.find(Boolean)} alt={description} />
         <Name>{name}</Name>
       </ImageNameWrapper>
       <PricingWrapper>
@@ -47,15 +47,15 @@ const StyledCartItem = styled.div`
 const ImageNameWrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  gap: ${spacing(0)};
 `
 
 const Image = styled(GatsbyImage)`
   flex-grow: 1;
-  width: 33%;
+  width: 34%;
 `
 
 const Name = styled.h3`
+  margin-left: ${spacing(0)};
   text-align: right;
   flex-grow: 2;
   width: 66%;

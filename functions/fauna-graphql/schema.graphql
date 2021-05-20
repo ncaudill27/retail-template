@@ -1,0 +1,8 @@
+type Product {
+  price_id: String!
+  count: Int!
+}
+
+type Query {
+  allProduct: [Product!]
+}

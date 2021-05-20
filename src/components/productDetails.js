@@ -25,6 +25,7 @@ const ProductDetails = ({
           <h2>{formatPrice(price, currency)}</h2>
         </NamePriceWrapper>
         <p>{description}</p>
+        {/* add "show more" button to show selectors for different price points */}
       </CopyWrapper>
     </>
   )
@@ -46,12 +47,12 @@ const Image = styled(GatsbyImage)`
 
 const CopyWrapper = styled.div`
   position: relative;
+  /* pull product details up into product image */
   top: -${spacing(2)};
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   padding: ${spacing(2)};
   background-color: white;
-  overflow-y: scroll;
 `
 
 const NamePriceWrapper = styled.div`

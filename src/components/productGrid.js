@@ -1,10 +1,11 @@
 import React from "react"
+import PropTypes from "prop-types"
 import styled from "styled-components"
 
 import ProductCard from "./productCard"
 
 const ProductGrid = ({ products, handleProductView }) => {
-  console.log(products)
+  // console.log(products)
   return (
     <Grid>
       {products.map(product => (
@@ -25,5 +26,16 @@ const Grid = styled.div`
   grid-auto-rows: 20px;
   width: 100%;
 `
+
+ProductGrid.defaultProps = {
+  products: [],
+}
+
+ProductGrid.propTypes = {
+  products: PropTypes.array.isRequired,
+  // require state manipulation to view product details
+  // unless other method such as product pages/templates implemented
+  handleProductView: PropTypes.func.isRequired,
+}
 
 export default ProductGrid

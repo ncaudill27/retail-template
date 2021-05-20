@@ -11,11 +11,16 @@ import BackArrow from "./backArrow"
 import "@reach/dialog/styles.css"
 
 const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
+  // aria-labelledby derived from product_id
   const label = `label__${product.product_id}`
+
   const { addItem } = useShoppingCart()
   const handleAddItem = async () => {
+    // add item to cart
     await addItem(product)
+    // close current product dialog
     await closeDialog()
+    // open cart dialog
     showCart()
   }
 

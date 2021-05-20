@@ -5,10 +5,12 @@ import { useShoppingCart } from "use-shopping-cart"
 const InputQuantity = ({ id, quantity }) => {
   const { incrementItem, decrementItem, removeItem } = useShoppingCart()
 
+  // loading state to account for when async calls to inventory are made
   const [loading, setLoading] = useState(false)
 
   const handleIncrement = id => async e => {
     await setLoading(true)
+    // TODO hit inventory database to check available stock
     await incrementItem(id)
     setLoading(false)
   }
@@ -18,6 +20,7 @@ const InputQuantity = ({ id, quantity }) => {
 
     if (quantity <= 1) {
       // remove item and escape function to avoid memory leak
+      // TODO hit inventory database to modify
       removeItem(id)
       return
     } else {
