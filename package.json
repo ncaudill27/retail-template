@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@apollo/client": "^3.3.19",
     "@reach/dialog": "^0.13.2",
     "@reach/portal": "^0.13.2",
     "@stripe/stripe-js": "^1.13.2",
@@ -24,6 +25,7 @@
     "gatsby-source-stripe": "^3.2.2",
     "gatsby-transformer-sharp": "^3.1.0",
     "gbimage-bridge": "^0.1.1",
+    "graphql": "^15.5.0",
     "node-polyfill-webpack-plugin": "^1.0.3",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
