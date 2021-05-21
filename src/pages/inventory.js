@@ -4,27 +4,11 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import fetch from "cross-fetch"
-import {
-  ApolloClient,
-  ApolloProvider,
-  InMemoryCache,
-  HttpLink,
-  gql,
-  useQuery,
-} from "@apollo/client"
-
-const client = new ApolloClient({
-  link: new HttpLink({
-    uri: "/.netlify/functions/fauna-graphql",
-    fetch,
-  }),
-  cache: new InMemoryCache(),
-})
+import { gql, useQuery } from "@apollo/client"
 
 const ALL_PRODUCTS_QUERY = gql`
   query {
-    allProduct {
+    inventory: allProduct {
       data {
         count
         price_id
@@ -33,31 +17,16 @@ const ALL_PRODUCTS_QUERY = gql`
   }
 `
 
-const InventoryPage = ({
-  data
-}) => {
-  console.log(data)
+const InventoryPage = ({ data: pageQuery }) => {
+  console.log(pageQuery?.products?.edges)
 
   const { loading, error, data: apolloData } = useQuery(ALL_PRODUCTS_QUERY)
 
-  // const handleClick = async e => {
-  //   const client = await fetch("./netlify/functions/fauna-graphql", {
-  //     method: "get",
-  //     body: JSON.stringify({
-  //       query: ALL_PRODUCTS,
-  //     }),
-  //   }).then(res => res.json())
-  //   console.log(client)
-  // }
-
-  console.log('Loading: ', loading)
-  console.log('Error: ', error)
-  console.log('Data: ', apolloData)
+  console.log("Data: ", apolloData?.inventory?.data)
   return (
     <Layout>
       <SEO title="Inventory" />
       Hello
-      {/* <button onClick={handleClick}>TEST FAUNA</button> */}
     </Layout>
   )
 }
@@ -99,9 +68,4 @@ InventoryPage.defaultProps = {
   data: {},
 }
 
-const InventoryPageWithProvider = (props) => (
-  <ApolloProvider client={client}>
-    <InventoryPage {...props} />
-  </ApolloProvider>
-)
-export default InventoryPageWithProvider
+export default InventoryPage

@@ -6,6 +6,9 @@ import { loadStripe } from "@stripe/stripe-js"
 import { ThemeProvider } from "styled-components"
 import { theme } from "./src/styles/theme"
 
+import { ApolloProvider } from "@apollo/client"
+import { client } from "./src/apollo/client"
+
 const stripePromise = loadStripe(process.env.GATSBY_STRIPE_PUBLISHABLE_KEY)
 
 export const wrapRootElement = ({ element }) => (
@@ -18,6 +21,8 @@ export const wrapRootElement = ({ element }) => (
     allowedCountries={["US"]}
     billingAddressCollection={true}
   >
-    <ThemeProvider theme={theme}>{element}</ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <ApolloProvider client={client}>{element}</ApolloProvider>
+    </ThemeProvider>
   </CartProvider>
 )
