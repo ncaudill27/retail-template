@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `E-commerce Template`,
-    description: `A basic e-commerce template kimplementing use-shopping-cart`,
+    description: `A basic e-commerce template implementing use-shopping-cart`,
     author: `Nelson Caudill`,
   },
   plugins: [

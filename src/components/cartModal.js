@@ -11,7 +11,7 @@ import CartSpacer from "./cartSpacer"
 
 const CartModal = ({ showDialog, closeDialog }) => {
   // aria-labelledby generator
-  const label = "cart__random-id-number"
+  const label = "cart__random-id-number" //todo generate random id
   const {
     cartDetails,
     totalPrice,
