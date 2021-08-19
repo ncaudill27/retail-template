@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { formatPrice, spacing } from "../utils/helpers"
+import useRefDimensions from '../hooks/useRefDimensions'
+import useDerivedRowEnd from '../hooks/useDerivedRowEnd'
 
 const ProductCard = product => {
   const {
@@ -12,21 +14,13 @@ const ProductCard = product => {
     displayedImages,
     handleProductView,
   } = product
-
   const imageEl = useRef()
   const copyEl = useRef()
-  const [gridRowEnd, setGridRowEnd] = useState(`span 21`)
-
-  //! revisit this entire hook. Not working correctly
-  //! consider useImperitiveHandle
-  useEffect(() => {
-    const imgHeight = imageEl.current.getBoundingClientRect().height
-    const copyHeight = copyEl.current.getBoundingClientRect().height
-    const rowEnd = Math.floor(imgHeight / 20 + copyHeight / 20 + 2)
-    setGridRowEnd(`span ${rowEnd}`)
-  }, [imageEl, copyEl, gridRowEnd]) //TODO add useWidth hook to dependencies
-  // useWidth hook allows for element to be properly placed after window resizing
-  // e.g. when a phone gets turned sideways
+  
+  const { height: imgHeight } = useRefDimensions(imageEl)
+  const { height: copyHeight } = useRefDimensions(copyEl)
+  
+  const gridRowEnd = useDerivedRowEnd({imgHeight, copyHeight})
 
   return (
     <StyledCard
