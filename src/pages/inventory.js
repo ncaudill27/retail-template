@@ -23,6 +23,9 @@ const InventoryPage = ({ data: pageQuery }) => {
   const { loading, error, data: apolloData } = useQuery(ALL_PRODUCTS_QUERY)
 
   console.log("Data: ", apolloData?.inventory?.data)
+  console.log('Loading: ', loading);
+  console.log('Error: ', error);
+
   return (
     <Layout>
       <SEO title="Inventory" />
