@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { spacing } from "../utils/helpers"
 
 import CartSpacer from "./cartSpacer"
 import InputQuantity from "./inputQuantity"

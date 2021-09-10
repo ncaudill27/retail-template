@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { spacing } from "../utils/helpers"
 
 const SuccessForm = () => {
   const [email, setEmail] = useState("")

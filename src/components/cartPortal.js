@@ -20,8 +20,8 @@ const CartPortal = ({ showCart }) => {
 
 const Wrapper = styled.div`
   position: absolute;
-  top: 32px;
-  right: 32px;
+  top: var(--spacing-4);
+  right: var(--spacing-8);
   padding: 8px;
   display: flex;
   align-items: center;

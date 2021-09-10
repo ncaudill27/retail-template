@@ -2,10 +2,11 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { spacing } from "../utils/helpers"
 
 import Header from "./header"
+import MaxWidthWrapper from "./maxWidthWrapper"
 // TODO switch from generic gatsby css reset
+import "./layout.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -21,27 +22,17 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data?.site?.siteMetadata?.title || `Title`} />
-      <Wrapper>
-        <main>{children}</main>
-        <Footer>
+      <main>{children}</main>
+      <Footer>
+        <MaxWidthWrapper>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </Footer>
-      </Wrapper>
+        </MaxWidthWrapper>
+      </Footer>
     </>
   )
 }
-
-const Wrapper = styled.div`
-  margin: 0 auto;
-  max-width: 960px;
-  /* 
-    TODO find a cleaner way to handle spacing
-    using css variables
-  */
-  padding-bottom: var(--spacing-0);
-`
 
 const Footer = styled.footer`
   margin-top: 2rem;

@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { spacing } from "../utils/helpers"
 
 import LeftArrow from "../images/svg/left-arrow.svg"
 

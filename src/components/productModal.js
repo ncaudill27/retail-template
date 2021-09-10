@@ -2,7 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { useShoppingCart } from "use-shopping-cart"
-import { spacing } from "../utils/helpers"
 
 import Dialog from "@reach/dialog"
 import ProductDetails from "./productDetails"

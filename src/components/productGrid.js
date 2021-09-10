@@ -2,20 +2,23 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
+import MaxWidthWrapper from "./maxWidthWrapper"
 import ProductCard from "./productCard"
 
 const ProductGrid = ({ products, handleProductView }) => {
   // console.log(products)
   return (
-    <Grid>
-      {products.map(product => (
-        <ProductCard
-          key={product.id}
-          handleProductView={handleProductView}
-          {...product}
-        />
-      ))}
-    </Grid>
+    <MaxWidthWrapper>
+      <Grid>
+        {products.map(product => (
+          <ProductCard
+            key={product.id}
+            handleProductView={handleProductView}
+            {...product}
+          />
+        ))}
+      </Grid>
+    </MaxWidthWrapper>
   )
 }
 

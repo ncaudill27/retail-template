@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import { useShoppingCart } from "use-shopping-cart"
 import useProductsTransformer from "../hooks/useProductsTransformer"
 
@@ -41,6 +42,11 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="Home" />
       {cartCount > 0 && <CartPortal showCart={openCartDialog} />}
+      <StaticImage
+        src="../images/yellow-hero.jpg"
+        alt="gradient image starting with yellow"
+        style={{ width: "100vw" }}
+      />
       <ProductGrid
         products={transformedProducts}
         handleProductView={handleProductView}

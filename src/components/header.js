@@ -2,14 +2,10 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { spacing } from "../utils/helpers"
-
-import HeaderBackground from "./headerBackground"
 
 const Header = ({ siteTitle }) => {
   return (
     <StyledHeader>
-      <HeaderBackground />
       <Wrapper>
         <Title>
           <StyledLink to="/">{siteTitle}</StyledLink>
@@ -24,11 +20,10 @@ const StyledHeader = styled.header`
 `
 
 const Wrapper = styled.div`
-  position: absolute;
   top: 0;
   margin: 0 auto;
   width: 100%;
-  padding: var(--spacing-5) var(--spacing-3);
+  padding: var(--spacing-4) var(--spacing-8);
 `
 
 const Title = styled.h1`
