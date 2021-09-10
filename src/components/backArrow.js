@@ -13,8 +13,8 @@ const BackArrow = props => (
 const BackWrapper = styled.div`
   position: absolute;
   display: flex;
-  top: ${spacing(0)};
-  left: ${spacing(0)};
+  top: var(--spacing-0);
+  left: var(--spacing-0);
   z-index: 1;
 `
 

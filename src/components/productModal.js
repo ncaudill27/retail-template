@@ -53,16 +53,16 @@ const StyledDialog = styled(Dialog)`
 
 const ButtonWrapper = styled.div`
   position: absolute;
-  bottom: ${spacing(0)};
+  bottom: var(--spacing-0);
   width: 100%;
-  padding: ${spacing(2)};
+  padding: var(--spacing-2);
 `
 
 const AddToCartBtn = styled.button`
   width: 100%;
   outline: none;
   border: none;
-  padding: ${spacing(1)};
+  padding: var(--spacing-1);
   background: black;
   color: white;
   text-transform: uppercase;

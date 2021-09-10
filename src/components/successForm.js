@@ -17,8 +17,8 @@ const SuccessForm = () => {
 }
 
 const Form = styled.form`
-  margin: 0 ${spacing(3)};
-  padding: ${spacing(3)};
+  margin: 0 var(--spacing-3);
+  padding: var(--spacing-3);
   background-color: hsl(3deg, 0%, 90%);
   border-radius: 5px;
 `

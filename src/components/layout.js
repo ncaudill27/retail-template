@@ -40,12 +40,12 @@ const Wrapper = styled.div`
     TODO find a cleaner way to handle spacing
     using css variables
   */
-  padding-bottom: ${spacing(0)};
+  padding-bottom: var(--spacing-0);
 `
 
 const Footer = styled.footer`
   margin-top: 2rem;
-  padding: 0 ${spacing(0)};
+  padding: 0 var(--spacing-0);
 `
 
 Layout.propTypes = {

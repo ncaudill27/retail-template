@@ -5,39 +5,37 @@ html {
   /* ----------
     SPACING VARIABLES
   ---------- */
-  
-  --spacing-0: 8px,
-  --spacing-1: 16px,
-  --spacing-2: 24px,
-  --spacing-3: 32px,
-  --spacing-4: 40px,
-  --spacing-5: 48px,
-  --spacing-6: 56px,
-  --spacing-7: 64px,
-  --spacing-8: 72px,
-  --spacing-9: 80px,
-  --spacing-10: 88px,
-  --spacing-11: 96px,
-  --spacing-12: 104px,
-
-    /* ----------
-      COLOR PALETTE
-    ---------- */
-    --color-text: hsl(60deg, 81%, 12%);
-    --color-background: hsl(60deg, 100%, 94%);
-    --color-primary: hsl(60deg, 100%, 55%);
-    --color-primary-muted: hsl(60deg, 90%, 85%);
-    --color-primary-dark: hsl(60deg, 99%, 36%);
-    /* ----------
-      TYPOGRAPHY RULES
-    ---------- */
-    --font-weight-bold: 700;
-    --font-weight-semi-bold: 600;
-    --font-weight-medium: 500;
-    --font-weight-regular: 400;
-    --font-weight-light: 300;
-    --font-family-primary: "Montserrat", "DejaVu Sans", "Verdana", "sans‑serif";
-    --font-family-secondary: "Open Sans", "Segoe UI", "Apple SD Gothic Neo", "Lucida Grande", "Lucida Sans Unicode", "sans‑serif";
+  --spacing-0: 8px;
+  --spacing-1: 16px;
+  --spacing-2: 24px;
+  --spacing-3: 32px;
+  --spacing-4: 40px;
+  --spacing-5: 48px;
+  --spacing-6: 56px;
+  --spacing-7: 64px;
+  --spacing-8: 72px;
+  --spacing-9: 80px;
+  --spacing-10: 88px;
+  --spacing-11: 96px;
+  --spacing-12: 104px;
+  /* ----------
+    COLOR PALETTE
+  ---------- */
+  --color-text: hsl(60deg, 81%, 12%);
+  --color-background: hsl(60deg, 100%, 94%);
+  --color-primary: hsl(60deg, 100%, 55%);
+  --color-primary-muted: hsl(60deg, 90%, 85%);
+  --color-primary-dark: hsl(60deg, 99%, 36%);
+  /* ----------
+    TYPOGRAPHY RULES
+  ---------- */
+  --font-weight-bold: 700;
+  --font-weight-semi-bold: 600;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+  --font-weight-light: 300;
+  --font-family-primary: "Montserrat", "DejaVu Sans", "Verdana", "sans‑serif";
+  --font-family-secondary: "Open Sans", "Segoe UI", "Apple SD Gothic Neo", "Lucida Grande", "Lucida Sans Unicode", "sans‑serif";
   }
   /* Box sizing rules */
   *,

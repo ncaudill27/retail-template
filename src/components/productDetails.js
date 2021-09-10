@@ -48,10 +48,10 @@ const Image = styled(GatsbyImage)`
 const CopyWrapper = styled.div`
   position: relative;
   /* pull product details up into product image */
-  top: -${spacing(2)};
+  top: -var(--spacing-2);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  padding: ${spacing(2)};
+  padding: var(--spacing-2);
   background-color: white;
 `
 
@@ -61,8 +61,8 @@ const NamePriceWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: ${spacing(1)};
-  margin-bottom: ${spacing(3)};
+  gap: var(--spacing-1);
+  margin-bottom: var(--spacing-3);
 `
 
 ProductDetails.propTypes = {

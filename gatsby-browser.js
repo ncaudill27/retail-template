@@ -5,7 +5,7 @@ import { loadStripe } from "@stripe/stripe-js"
 
 import { ThemeProvider } from "styled-components"
 import { theme } from "./src/styles/theme"
-import GlobalStyles from './src/styles/globalStyles'
+import GlobalStyles from "./src/styles/globalStyles"
 
 import { ApolloProvider } from "@apollo/client"
 import { client } from "./src/apollo/client"

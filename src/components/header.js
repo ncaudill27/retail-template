@@ -19,7 +19,7 @@ const Header = ({ siteTitle }) => {
   )
 }
 const StyledHeader = styled.header`
-  margin-bottom: ${spacing(1)};
+  margin-bottom: var(--spacing-1);
   width: 100%;
 `
 
@@ -28,7 +28,7 @@ const Wrapper = styled.div`
   top: 0;
   margin: 0 auto;
   width: 100%;
-  padding: ${spacing(5)} ${spacing(3)};
+  padding: var(--spacing-5) var(--spacing-3);
 `
 
 const Title = styled.h1`

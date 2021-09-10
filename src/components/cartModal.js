@@ -69,12 +69,12 @@ const StyledDialog = styled(Dialog)`
 const CartHeader = styled.h3`
   text-align: center;
   margin: 0;
-  padding-top: ${spacing(2)};
+  padding-top: var(--spacing-2);
 `
 
 const SubTotal = styled.div`
   text-align: center;
-  padding-bottom: ${spacing(3)};
+  padding-bottom: var(--spacing-3);
 
   h4 {
     text-decoration: underline;
@@ -90,10 +90,10 @@ const CheckoutButton = styled.button`
   outline: none;
   border: none;
   width: 100%;
-  padding: ${spacing(4)};
+  padding: var(--spacing-4);
   color: black;
   text-transform: uppercase;
-  background: ${p => p.theme.colors.secondary.light};
+  background: var(--color-primary);
 `
 
 CartModal.propTypes = {

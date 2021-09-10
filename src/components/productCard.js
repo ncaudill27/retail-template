@@ -2,8 +2,8 @@ import React, { useRef } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { formatPrice, spacing } from "../utils/helpers"
-import useRefDimensions from '../hooks/useRefDimensions'
-import useDerivedRowEnd from '../hooks/useDerivedRowEnd'
+import useRefDimensions from "../hooks/useRefDimensions"
+import useDerivedRowEnd from "../hooks/useDerivedRowEnd"
 
 const ProductCard = product => {
   const {
@@ -16,11 +16,11 @@ const ProductCard = product => {
   } = product
   const imageEl = useRef()
   const copyEl = useRef()
-  
+
   const { height: imgHeight } = useRefDimensions(imageEl)
   const { height: copyHeight } = useRefDimensions(copyEl)
-  
-  const gridRowEnd = useDerivedRowEnd({imgHeight, copyHeight})
+
+  const gridRowEnd = useDerivedRowEnd({ imgHeight, copyHeight })
 
   return (
     <StyledCard
@@ -51,7 +51,7 @@ const ImgWrapper = styled.div`
 `
 
 const CopyWrapper = styled.div`
-  padding: ${spacing(0)};
+  padding: var(--spacing-0);
   padding-bottom: 0;
 `
 

@@ -37,8 +37,8 @@ const CartItem = ({
 )
 
 const StyledCartItem = styled.div`
-  padding-left: ${spacing(1)};
-  padding-right: ${spacing(1)};
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -55,19 +55,19 @@ const Image = styled(GatsbyImage)`
 `
 
 const Name = styled.h3`
-  margin-left: ${spacing(0)};
+  margin-left: var(--spacing-0);
   text-align: right;
   flex-grow: 2;
   width: 66%;
 `
 
 const PricingWrapper = styled.div`
-  margin-top: ${spacing(2)};
-  height: ${spacing(5)};
+  margin-top: var(--spacing-2);
+  height: var(--spacing-5);
   display: flex;
   justify-content: center;
   align-content: center;
-  gap: ${spacing(2)};
+  gap: var(--spacing-2);
 
   & > * {
     text-align: center;
