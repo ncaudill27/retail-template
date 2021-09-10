@@ -71,7 +71,7 @@ ProductDetails.propTypes = {
   labelId: PropTypes.string.isRequired,
   currency: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  gatsbyImage: PropTypes.object.isRequired,
+  displayedImages: PropTypes.array.isRequired,
 }
 
 export default ProductDetails
