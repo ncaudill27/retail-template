@@ -5,6 +5,7 @@ import { loadStripe } from "@stripe/stripe-js"
 
 import { ThemeProvider } from "styled-components"
 import { theme } from "./src/styles/theme"
+import GlobalStyles from './src/styles/globalStyles'
 
 import { ApolloProvider } from "@apollo/client"
 import { client } from "./src/apollo/client"
@@ -22,6 +23,7 @@ export const wrapRootElement = ({ element }) => (
     billingAddressCollection={true}
   >
     <ThemeProvider theme={theme}>
+      <GlobalStyles />
       <ApolloProvider client={client}>{element}</ApolloProvider>
     </ThemeProvider>
   </CartProvider>

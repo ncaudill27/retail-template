@@ -27,7 +27,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
-  background: ${p => p.theme.colors.secondary.light};
+  background-color: var(--color-primary);
   border-radius: 10px;
 `
 
