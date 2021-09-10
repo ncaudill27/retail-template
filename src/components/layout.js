@@ -6,7 +6,6 @@ import { spacing } from "../utils/helpers"
 
 import Header from "./header"
 // TODO switch from generic gatsby css reset
-import "./layout.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
