@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-import { formatPrice, spacing } from "../utils/helpers"
+import { formatPrice } from "../utils/helpers"
 
 const ProductDetails = ({
   name,
@@ -12,6 +12,10 @@ const ProductDetails = ({
   description,
   displayedImages,
 }) => {
+
+  const [isOpen, setIsOpen] = React.useState(false)
+  const toggleOpen = () => setIsOpen(prev => !prev)
+  console.log(isOpen);
   return (
     <>
       <ImgWrapper
@@ -19,8 +23,10 @@ const ProductDetails = ({
       >
         <Image image={displayedImages[0]} alt={description} />
       </ImgWrapper>
-      <CopyWrapper>
-        <NamePriceWrapper>
+      <CopyWrapper style={{
+        '--height': isOpen ? '70vh' : '40vh'
+      }}>
+        <NamePriceWrapper onClick={toggleOpen}>
           <h2 id={labelId}>{name}</h2>
           <h2>{formatPrice(price, currency)}</h2>
         </NamePriceWrapper>
@@ -43,12 +49,15 @@ const Image = styled(GatsbyImage)`
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
+  height: 70vh;
 `
 
 const CopyWrapper = styled.div`
-  position: relative;
+  position: absolute;
   /* pull product details up into product image */
-  top: -var(--spacing-2);
+  bottom: 0;
+  max-height: var(--height);
+  height: var(--height);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   padding: var(--spacing-2);
