@@ -50,9 +50,8 @@ export const query = graphql`
             name
             description
             metadata {
-              small
-              large
-              fuckyouttest
+              size
+              outdoor
             }
             image: localFiles {
               childImageSharp {

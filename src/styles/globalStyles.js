@@ -22,12 +22,12 @@ html {
     COLOR PALETTE
   ---------- */
   --color-text: hsl(140deg, 30%, 12%);
-  --color-background: #FDFBFA;
-  --color-primary: #50C878;
-  --color-primary-muted: hsl(60deg, 90%, 85%);
-  --color-primary-dark: hsl(60deg, 99%, 36%);
+  --color-background: hsl(20deg, 43%, 99%);
+  --color-primary: hsl(140deg, 52%, 55%);
+  --color-primary-muted: hsl(140deg, 40%, 71%);
+  --color-primary-dark: hsl(140deg, 52%, 36%);
   /* ----------
-    TYPOGRAPHY RULES
+    BASE TYPOGRAPHY RULES
   ---------- */
   --font-weight-bold: 700;
   --font-weight-semi-bold: 600;
@@ -37,6 +37,9 @@ html {
   --font-family-primary: "Montserrat", "DejaVu Sans", "Verdana", "sans‑serif";
   --font-family-secondary: "Open Sans", "Segoe UI", "Apple SD Gothic Neo", "Lucida Grande", "Lucida Sans Unicode", "sans‑serif";
   }
+  /* ----------
+    CSS RESET
+  ---------- */
   /* Box sizing rules */
   *,
   *::before,
@@ -118,5 +121,59 @@ html {
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+  }
+  /* ----------
+    SPECIFIC CSS
+  ---------- */
+  h1 {
+    /* ----------
+      FONT SIZE VARIABLES
+    ---------- */
+    --type-fontsize-min: 1.625em; /* 26px */
+    --type-fontsize-max: 4em; /* 64px */
+    --type-fontsize-value: 0.73em + 4.36vw;
+    font-size: clamp(
+      var(--type-fontsize-min),
+      var(--type-fontsize-value),
+      var(--type-fontsize-max)
+    );
+    /* ----------
+      LINE HEIGHT VARIABLES
+    ---------- */
+    --type-lineheight-min: 1.538461538462;
+    --type-lineheight-max: 1.5;
+    --type-lineheight-value: 1.13em + 6.83vw;
+    line-height: clamp(
+      var(--type-lineheight-min),
+      var(--type-lineheight-value),
+      var(--type-lineheight-max)
+    );
+  }
+
+  h2 {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-semi-bold);
+    /* ----------
+      FONT SIZE VARIABLES
+    ---------- */
+    --type-fontsize-min: 1.4375em; /* 23px */
+    --type-fontsize-max: 3em; /* 48px */
+    --type-fontsize-value: 0.91em + 2.55vw;
+    font-size: clamp(
+      var(--type-fontsize-min),
+      var(--type-fontsize-value),
+      var(--type-fontsize-max)
+    );
+    /* ----------
+      LINE HEIGHT VARIABLES
+    ---------- */
+    --type-lineheight-min: 1.391304347826;
+    --type-lineheight-max: 1.422222222222;
+    --type-lineheight-value: 1.22em + 3.9vw;
+    line-height: clamp(
+      var(--type-lineheight-min),
+      var(--type-lineheight-value),
+      var(--type-lineheight-max)
+    );
   }
 `

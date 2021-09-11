@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `E-commerce Template`,
+    title: `Floret`,
     description: `A basic e-commerce template implementing use-shopping-cart`,
     author: `Nelson Caudill`,
   },

@@ -8,7 +8,7 @@ import ProductCard from "./productCard"
 const ProductGrid = ({ products, handleProductView }) => {
   // console.log(products)
   return (
-    <MaxWidthWrapper>
+    <MaxWidthWrapper width={1000}>
       <Grid>
         {products.map(product => (
           <ProductCard
@@ -23,10 +23,10 @@ const ProductGrid = ({ products, handleProductView }) => {
 }
 
 const Grid = styled.div`
+  padding: var(--spacing-1);
   display: grid;
-  gap: 0px 80px;
+  gap: var(--spacing-2) var(--spacing-1);
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-auto-rows: 20px;
   width: 100%;
   padding-top: var(--spacing-4);
 `

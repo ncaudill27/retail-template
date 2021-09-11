@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
+import CartPortal from "./cartPortal"
+
 const Header = ({ siteTitle }) => {
   return (
     <StyledHeader>
@@ -10,20 +12,17 @@ const Header = ({ siteTitle }) => {
         <Title>
           <StyledLink to="/">{siteTitle}</StyledLink>
         </Title>
+        <CartPortal />
       </Wrapper>
     </StyledHeader>
   )
 }
 const StyledHeader = styled.header`
-  margin-bottom: var(--spacing-1);
   width: 100%;
 `
 
 const Wrapper = styled.div`
-  top: 0;
-  margin: 0 auto;
-  width: 100%;
-  padding: var(--spacing-4) var(--spacing-8);
+  padding: var(--spacing-2) var(--spacing-10);
 `
 
 const Title = styled.h1`

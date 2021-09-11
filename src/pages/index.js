@@ -44,8 +44,9 @@ const IndexPage = ({ data }) => {
       {cartCount > 0 && <CartPortal showCart={openCartDialog} />}
       <StaticImage
         src="../images/green-hero.jpg"
+        attribution="https://unsplash.com/@chrisleeiam"
         alt="gradient image starting with yellow"
-        style={{ width: "100vw", height: '248px' }}
+        style={{ width: "100vw", height: '500px' }}
       />
       <ProductGrid
         products={transformedProducts}
@@ -82,9 +83,8 @@ export const query = graphql`
             name
             description
             metadata {
-              small
-              large
-              fuckyouttest
+              size
+              outdoor
             }
             image: localFiles {
               childImageSharp {

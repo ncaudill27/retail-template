@@ -14,23 +14,15 @@ const ProductCard = product => {
     displayedImages,
     handleProductView,
   } = product
-  const imageEl = useRef()
-  const copyEl = useRef()
-
-  const { height: imgHeight } = useRefDimensions(imageEl)
-  const { height: copyHeight } = useRefDimensions(copyEl)
-
-  const gridRowEnd = useDerivedRowEnd({ imgHeight, copyHeight })
 
   return (
     <StyledCard
-      style={{ "--grid-row-end": gridRowEnd }}
       onClick={handleProductView(product)}
     >
-      <ImgWrapper ref={imageEl}>
-        <GatsbyImage image={displayedImages.find(Boolean)} alt={description} />
+      <ImgWrapper>
+        <GatsbyImage image={displayedImages.find(Boolean)} alt={description} style={{maxHeight: 400}} />
       </ImgWrapper>
-      <CopyWrapper ref={copyEl}>
+      <CopyWrapper>
         <CardTitle>{name}</CardTitle>
         <CardPrice>{formatPrice(price, currency)}</CardPrice>
       </CopyWrapper>
@@ -51,15 +43,17 @@ const ImgWrapper = styled.div`
 `
 
 const CopyWrapper = styled.div`
-  padding: var(--spacing-0);
-  padding-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-1)
+  font-size: 18px;
 `
 
-const CardTitle = styled.h2`
+const CardTitle = styled.h5`
   margin: 0 0 0.5rem;
 `
 
-const CardPrice = styled.p`
+const CardPrice = styled.h5`
   margin: 0;
 `
 

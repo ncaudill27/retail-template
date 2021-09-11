@@ -11,8 +11,12 @@ const CartPortal = ({ showCart }) => {
   return (
     <Portal>
       <Wrapper onClick={showCart}>
-        <CartImage style={{ width: "40px", height: "40px" }} />
-        <Count>{cartCount}</Count>
+        <CartImage style={{ width: "40px", height: "40px", }} />
+        <CountWrapper>
+          <Count>
+            {cartCount}
+          </Count>
+        </CountWrapper>
       </Wrapper>
     </Portal>
   )
@@ -20,21 +24,24 @@ const CartPortal = ({ showCart }) => {
 
 const Wrapper = styled.div`
   position: absolute;
-  top: var(--spacing-4);
-  right: var(--spacing-8);
-  padding: 8px;
+  top: var(--spacing-2);
+  right: var(--spacing-10);
+  padding: var(--spacing-0);
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 8px;
+  gap: var(--spacing-0);
   background-color: var(--color-primary);
   border-radius: 10px;
 `
 
-const Count = styled.p`
-  display: block;
-  height: 100%;
-  margin: 0;
+const CountWrapper = styled.div`
+  font-weight: bold;
+  text-align: center;
 `
+
+const Count = styled.span`
+  
+`;
 
 export default CartPortal
