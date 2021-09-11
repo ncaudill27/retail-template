@@ -24,11 +24,11 @@ const ProductGrid = ({ products, handleProductView }) => {
 
 const Grid = styled.div`
   padding: var(--spacing-1);
+  padding-top: var(--spacing-2);
   display: grid;
   gap: var(--spacing-2) var(--spacing-1);
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   width: 100%;
-  padding-top: var(--spacing-4);
 `
 
 ProductGrid.defaultProps = {

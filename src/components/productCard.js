@@ -1,9 +1,7 @@
-import React, { useRef } from "react"
+import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-import { formatPrice, spacing } from "../utils/helpers"
-import useRefDimensions from "../hooks/useRefDimensions"
-import useDerivedRowEnd from "../hooks/useDerivedRowEnd"
+import { formatPrice } from "../utils/helpers"
 
 const ProductCard = product => {
   const {
@@ -30,31 +28,27 @@ const ProductCard = product => {
   )
 }
 
-const StyledCard = styled.div`
+const StyledCard = styled.article`
   width: 100%;
   height: 100%;
   grid-row-end: var(--grid-row-end);
 `
 
 const ImgWrapper = styled.div`
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
 `
 
 const CopyWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: var(--spacing-1)
-  font-size: 18px;
+  gap: var(--spacing-1);
 `
 
-const CardTitle = styled.h5`
-  margin: 0 0 0.5rem;
+const CardTitle = styled.h6`
+
 `
 
-const CardPrice = styled.h5`
-  margin: 0;
+const CardPrice = styled.h6`
+  font-family: var(--font-family-primary);
 `
 
 export default ProductCard
