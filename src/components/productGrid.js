@@ -28,6 +28,7 @@ const Grid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-auto-rows: 20px;
   width: 100%;
+  padding-top: var(--spacing-4);
 `
 
 ProductGrid.defaultProps = {

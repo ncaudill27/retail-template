@@ -43,9 +43,9 @@ const IndexPage = ({ data }) => {
       <SEO title="Home" />
       {cartCount > 0 && <CartPortal showCart={openCartDialog} />}
       <StaticImage
-        src="../images/yellow-hero.jpg"
+        src="../images/green-hero.jpg"
         alt="gradient image starting with yellow"
-        style={{ width: "100vw" }}
+        style={{ width: "100vw", height: '248px' }}
       />
       <ProductGrid
         products={transformedProducts}

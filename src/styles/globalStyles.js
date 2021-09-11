@@ -21,9 +21,9 @@ html {
   /* ----------
     COLOR PALETTE
   ---------- */
-  --color-text: hsl(60deg, 81%, 12%);
-  --color-background: hsl(60deg, 100%, 94%);
-  --color-primary: hsl(60deg, 100%, 55%);
+  --color-text: hsl(140deg, 30%, 12%);
+  --color-background: #FDFBFA;
+  --color-primary: #50C878;
   --color-primary-muted: hsl(60deg, 90%, 85%);
   --color-primary-dark: hsl(60deg, 99%, 36%);
   /* ----------
@@ -77,10 +77,11 @@ html {
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     font-family: var(--font-family-secondary);
+    background-color: var(--color-background);
   }
 
   h1,h2,h3,h4,h5,h6 {
-    font-family: var(--font-family-primary)
+    font-family: var(--font-family-primary);
   }
 
   /* A elements that don't have a class get default styles */

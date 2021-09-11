@@ -27,12 +27,12 @@ const Wrapper = styled.div`
 `
 
 const Title = styled.h1`
-  margin: 0;
+  color: var(--color-text);
 `
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: inherit;
 `
 
 Header.propTypes = {
