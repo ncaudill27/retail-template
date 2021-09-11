@@ -47,7 +47,8 @@ const StyledDialog = styled(Dialog)`
   height: 100vh;
   width: 100%;
   padding: 0;
-  background-color: white;
+
+  
 `
 
 const ButtonWrapper = styled.div`
@@ -62,8 +63,9 @@ const AddToCartBtn = styled.button`
   outline: none;
   border: none;
   padding: var(--spacing-1);
-  background: black;
-  color: white;
+  background-color: var(--color-primary);
+  font-family: var(--font-family-secondary);
+  color: var(--color-background);
   text-transform: uppercase;
 `
 

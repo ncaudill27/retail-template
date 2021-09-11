@@ -61,7 +61,7 @@ const CopyWrapper = styled.div`
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   padding: var(--spacing-2);
-  background-color: white;
+  background-color: var(--color-background);
 `
 
 const NamePriceWrapper = styled.div`
