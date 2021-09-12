@@ -11,11 +11,9 @@ const CartPortal = ({ showCart }) => {
   return (
     <Portal>
       <Wrapper onClick={showCart}>
-        <CartImage style={{ width: "40px", height: "40px", }} />
+        <CartImage style={{ width: "40px", height: "40px" }} />
         <CountWrapper>
-          <Count>
-            {cartCount}
-          </Count>
+          <Count>{cartCount}</Count>
         </CountWrapper>
       </Wrapper>
     </Portal>
@@ -40,8 +38,6 @@ const CountWrapper = styled.div`
   text-align: center;
 `
 
-const Count = styled.span`
-  
-`;
+const Count = styled.span``
 
 export default CartPortal

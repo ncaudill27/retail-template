@@ -6,7 +6,6 @@ import styled from "styled-components"
 import Header from "./header"
 import MaxWidthWrapper from "./maxWidthWrapper"
 // TODO switch from generic gatsby css reset
-import "./layout.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

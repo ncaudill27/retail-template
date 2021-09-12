@@ -14,11 +14,13 @@ const ProductCard = product => {
   } = product
 
   return (
-    <StyledCard
-      onClick={handleProductView(product)}
-    >
+    <StyledCard onClick={handleProductView(product)}>
       <ImgWrapper>
-        <GatsbyImage image={displayedImages.find(Boolean)} alt={description} style={{maxHeight: 400}} />
+        <GatsbyImage
+          image={displayedImages.find(Boolean)}
+          alt={description}
+          style={{ maxHeight: 400 }}
+        />
       </ImgWrapper>
       <CopyWrapper>
         <CardTitle>{name}</CardTitle>
@@ -34,8 +36,7 @@ const StyledCard = styled.article`
   grid-row-end: var(--grid-row-end);
 `
 
-const ImgWrapper = styled.div`
-`
+const ImgWrapper = styled.div``
 
 const CopyWrapper = styled.div`
   display: flex;
@@ -43,9 +44,7 @@ const CopyWrapper = styled.div`
   gap: var(--spacing-1);
 `
 
-const CardTitle = styled.h6`
-
-`
+const CardTitle = styled.h6``
 
 const CardPrice = styled.h6`
   font-family: var(--font-family-primary);

@@ -27,7 +27,7 @@ const IndexPage = ({ data }) => {
   const [dialogProduct, setDialogProduct] = useState({})
 
   // state actions for viewing current cart
-  const [showCartDialog, setShowCartDialog] = useState(false)
+  const [showCartDialog, setShowCartDialog] = useState(true)
   const openCartDialog = () => setShowCartDialog(true)
   const closeCartDialog = () => setShowCartDialog(false)
 
@@ -46,7 +46,7 @@ const IndexPage = ({ data }) => {
         src="../images/green-hero.jpg"
         attribution="https://unsplash.com/@chrisleeiam"
         alt="gradient image starting with yellow"
-        style={{ width: "100vw", height: '500px' }}
+        style={{ width: "100vw", height: "500px" }}
       />
       <ProductGrid
         products={transformedProducts}

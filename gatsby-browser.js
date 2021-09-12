@@ -3,8 +3,6 @@ import React from "react"
 import { CartProvider } from "use-shopping-cart"
 import { loadStripe } from "@stripe/stripe-js"
 
-import { ThemeProvider } from "styled-components"
-import { theme } from "./src/styles/theme"
 import GlobalStyles from "./src/styles/globalStyles"
 
 import { ApolloProvider } from "@apollo/client"
@@ -22,9 +20,7 @@ export const wrapRootElement = ({ element }) => (
     allowedCountries={["US"]}
     billingAddressCollection={true}
   >
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <ApolloProvider client={client}>{element}</ApolloProvider>
-    </ThemeProvider>
+    <GlobalStyles />
+    <ApolloProvider client={client}>{element}</ApolloProvider>
   </CartProvider>
 )

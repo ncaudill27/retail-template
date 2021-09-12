@@ -12,10 +12,9 @@ const ProductDetails = ({
   description,
   displayedImages,
 }) => {
-
   const [isOpen, setIsOpen] = React.useState(false)
   const toggleOpen = () => setIsOpen(prev => !prev)
-  console.log(isOpen);
+  console.log(isOpen)
   return (
     <>
       <ImgWrapper
@@ -23,9 +22,11 @@ const ProductDetails = ({
       >
         <Image image={displayedImages[0]} alt={description} />
       </ImgWrapper>
-      <CopyWrapper style={{
-        '--height': isOpen ? '70vh' : '40vh'
-      }}>
+      <CopyWrapper
+        style={{
+          "--height": isOpen ? "70vh" : "40vh",
+        }}
+      >
         <NamePriceWrapper onClick={toggleOpen}>
           <h2 id={labelId}>{name}</h2>
           <h2>{formatPrice(price, currency)}</h2>

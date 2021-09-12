@@ -5,7 +5,7 @@ import { useShoppingCart } from "use-shopping-cart"
 
 import Dialog from "@reach/dialog"
 import ProductDetails from "./productDetails"
-import BackArrow from "./backArrow"
+import Close from "./images/close"
 
 import "@reach/dialog/styles.css"
 
@@ -29,7 +29,7 @@ const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
       onDismiss={closeDialog}
       aria-labelledby={label}
     >
-      <BackArrow onClick={closeDialog} />
+      <Close onClick={closeDialog} />
       <ProductDetails {...product} labelId={label} />
       <ButtonWrapper>
         <AddToCartBtn onClick={handleAddItem}>Add To Cart</AddToCartBtn>
@@ -47,8 +47,6 @@ const StyledDialog = styled(Dialog)`
   height: 100vh;
   width: 100%;
   padding: 0;
-
-  
 `
 
 const ButtonWrapper = styled.div`

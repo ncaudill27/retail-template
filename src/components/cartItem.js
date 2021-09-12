@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-import CartSpacer from "./cartSpacer"
 import InputQuantity from "./inputQuantity"
 
 const CartItem = ({
@@ -14,7 +13,6 @@ const CartItem = ({
   formattedValue,
 }) => (
   <>
-    <CartSpacer size={3} />
     <StyledCartItem>
       <ImageNameWrapper>
         <Image image={displayedImages.find(Boolean)} alt={description} />
