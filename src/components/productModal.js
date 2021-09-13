@@ -83,9 +83,10 @@ const StyledDialog = styled(Dialog)`
   
   @media (min-width: 800px) {
     background-color: var(--color-primary-muted);
-    padding: var(--spacing-4) var(--spacing-8);
+    padding: var(--spacing-10) var(--spacing-8);
 
     display: grid;
+    gap: var(--spacing-1);
     grid-template-areas: 
       "image copy"
       "image button"
@@ -117,6 +118,7 @@ const Image = styled(GatsbyImage)`
   @media (min-width: 800px) {
     height: unset;
     max-width: 500px;
+    min-height: 643px;
   }
 `
 
@@ -133,8 +135,8 @@ const CopyWrapper = styled.div`
 
   @media (min-width: 800px) {
     position: static;
+    padding: 0;
     grid-area: copy;
-    align-self: center;
   }
 `
 
@@ -156,6 +158,7 @@ const ButtonWrapper = styled.div`
 
   @media (min-width: 800px) {
     position: static;
+    padding: 0;
     grid-area: button;
     align-self: flex-end;
   }
