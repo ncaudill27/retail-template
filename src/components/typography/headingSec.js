@@ -17,12 +17,12 @@ export default styled.h2`
   /* ----------
       LINE HEIGHT VARIABLES
     ---------- */
-  --type-lineheight-min: 1.391304347826;
+  /* --type-lineheight-min: 1.391304347826;
   --type-lineheight-max: 1.422222222222;
   --type-lineheight-value: 1.22em + 3.9vw;
   line-height: clamp(
     var(--type-lineheight-min),
     var(--type-lineheight-value),
     var(--type-lineheight-max)
-  );
+  ); */
 `

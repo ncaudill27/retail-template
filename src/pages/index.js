@@ -8,6 +8,7 @@ import CartPortal from "../components/cartPortal"
 import ProductGrid from "../components/productGrid"
 import ProductModal from "../components/productModal"
 import CartModal from "../components/cartModal"
+import FeatureSection from "../components/featureSection"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -18,7 +19,6 @@ const IndexPage = ({ data }) => {
 
   // transform data from Stripe Products
   const transformedProducts = useProductsTransformer(data?.products?.edges)
-  console.log(transformedProducts)
   // state actions for viewing more details of a single product
   const [showProductDialog, setShowProductDialog] = useState(false)
   const openProductDialog = () => setShowProductDialog(true)
@@ -46,8 +46,9 @@ const IndexPage = ({ data }) => {
         src="../images/green-hero.jpg"
         attribution="https://unsplash.com/@chrisleeiam"
         alt="gradient image starting with yellow"
-        style={{ width: "100vw", height: "500px" }}
+        style={{ width: "100%", height: "500px" }}
       />
+      <FeatureSection products={data?.featured} />
       <ProductGrid
         products={transformedProducts}
         handleProductView={handleProductView}
@@ -96,6 +97,16 @@ export const query = graphql`
         }
       }
     }
+    featured: allStripePrice(filter: {product: {metadata: {outdoor: {eq: "true"}}}}) {
+    edges {
+      node {
+        product {
+          name
+        }
+        id
+      }
+    }
+  }
   }
 `
 
