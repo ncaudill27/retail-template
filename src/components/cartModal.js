@@ -67,8 +67,7 @@ const StyledDialog = styled(Dialog)`
   background-color: var(--color-background);
 
   @media (min-width: 600px) {
-    width: 35%;
-    min-width: 400px;
+    width: 600px;
     padding: var(--spacing-3);
   }
 `

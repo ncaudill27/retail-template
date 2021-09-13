@@ -45,7 +45,7 @@ const InputQuantity = ({ id, quantity }) => {
 
 const Wrapper = styled.div`
   display: flex;
-
+  background-color: var(--color-primary-muted);
   & > * {
     width: 100%;
     display: flex;
@@ -57,14 +57,13 @@ const Wrapper = styled.div`
 const Button = styled.button`
   outline: none;
   border: none;
-  background: white;
 `
 
 const Input = styled.input`
   outline: none;
   border: none;
-  background: white;
   text-align: center;
+  background-color: var(--color-primary-muted);
 `
 
 export default InputQuantity

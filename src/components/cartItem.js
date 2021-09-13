@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-import Name from "./typography/headingQua"
+import Heading from "./typography/headingQua"
 import InputQuantity from "./inputQuantity"
 
 const CartItem = ({
@@ -17,15 +17,16 @@ const CartItem = ({
     <StyledCartItem>
         <Image image={displayedImages.find(Boolean)} alt={description} layout="constrained" />
         <CopyWrapper>
-        <Name>{name}</Name>
+        <Heading>{name}</Heading>
         <Description>{description}</Description>
         </CopyWrapper>
-      <PricingWrapper>
-        <h6>Quantity</h6>
+      <QuantityWrapper>
         <InputQuantity id={id} quantity={quantity} />
-        <h6>Total</h6>
-        <p>{formattedValue}</p>
-      </PricingWrapper>
+        <PricingWrapper>
+          {/* <h6>Total</h6> */}
+          <p>{formattedValue}</p>
+        </PricingWrapper>
+      </QuantityWrapper>
     </StyledCartItem>
   </>
 )
@@ -42,7 +43,10 @@ const Image = styled(GatsbyImage)`
 `
 
 const CopyWrapper = styled.div`
-  width: 30%;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const Description = styled.p`
@@ -50,17 +54,18 @@ const Description = styled.p`
   line-height: 1.1;
 `;
 
-const PricingWrapper = styled.div`
-  width: 30%;
-  text-align: right;
+const QuantityWrapper = styled.div`
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 
-const AtSign = styled.span`
-  display: flex;
-  height: 80%;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.75rem;
-`
+const PricingWrapper = styled.div`
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+  text-align: center;
+`;
 
 export default CartItem
