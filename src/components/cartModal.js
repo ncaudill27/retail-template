@@ -81,10 +81,10 @@ const SubTotal = styled.div`
   padding: var(--spacing-1);
   display: flex;
   justify-content: space-between;
-
+  background-color: var(--color-background);
 
   @media (min-width: 600px) {
-    padding: var(--spacing-3);
+    padding: var(--spacing-2) var(--spacing-3);
   }
 `
 
@@ -120,7 +120,6 @@ const BottomWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  background-color: var(--color-background);
 `;
 
 CartModal.propTypes = {

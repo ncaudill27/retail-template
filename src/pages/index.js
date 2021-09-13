@@ -27,7 +27,7 @@ const IndexPage = ({ data }) => {
   const [dialogProduct, setDialogProduct] = useState({})
 
   // state actions for viewing current cart
-  const [showCartDialog, setShowCartDialog] = useState(true)
+  const [showCartDialog, setShowCartDialog] = useState(false)
   const openCartDialog = () => setShowCartDialog(true)
   const closeCartDialog = () => setShowCartDialog(false)
 

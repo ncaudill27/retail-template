@@ -25,7 +25,7 @@ html {
   --color-background: hsl(20deg, 43%, 99%);
   --color-primary: hsl(140deg, 52%, 55%);
   --color-primary-muted: hsl(140deg, 40%, 71%);
-  --color-primary-dark: hsl(140deg, 52%, 36%);
+  --color-primary-darkened: hsl(140deg, 52%, 36%);
   /* ----------
     BASE TYPOGRAPHY RULES
   ---------- */

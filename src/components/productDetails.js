@@ -1,8 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { formatPrice } from "../utils/helpers"
+
+import MaxWidthWrapper from './maxWidthWrapper'
 
 const ProductDetails = ({
   name,
@@ -14,7 +16,7 @@ const ProductDetails = ({
 }) => {
   const [isOpen, setIsOpen] = React.useState(false)
   const toggleOpen = () => setIsOpen(prev => !prev)
-  console.log(isOpen)
+  console.log(displayedImages[0].backgroundColor)
   return (
     <>
       <ImgWrapper
@@ -27,12 +29,14 @@ const ProductDetails = ({
           "--height": isOpen ? "70vh" : "40vh",
         }}
       >
-        <NamePriceWrapper onClick={toggleOpen}>
-          <h2 id={labelId}>{name}</h2>
-          <h2>{formatPrice(price, currency)}</h2>
-        </NamePriceWrapper>
-        <p>{description}</p>
-        {/* add "show more" button to show selectors for different price points */}
+        <MaxWidthWrapper width={480}>
+          <NamePriceWrapper onClick={toggleOpen}>
+            <h2 id={labelId}>{name}</h2>
+            <h2>{formatPrice(price, currency)}</h2>
+          </NamePriceWrapper>
+          <p>{description}</p>
+          {/* add "show more" button to show selectors for different price points */}
+        </MaxWidthWrapper>
       </CopyWrapper>
     </>
   )
@@ -43,7 +47,6 @@ const ImgWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--background-color);
 `
 
 const Image = styled(GatsbyImage)`
@@ -54,15 +57,15 @@ const Image = styled(GatsbyImage)`
 `
 
 const CopyWrapper = styled.div`
+  padding: var(--spacing-2);
   position: absolute;
-  /* pull product details up into product image */
   bottom: 0;
   max-height: var(--height);
   height: var(--height);
+  width: 100%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  padding: var(--spacing-2);
-  background-color: var(--color-background);
+  background-color: inherit;
 `
 
 const NamePriceWrapper = styled.div`

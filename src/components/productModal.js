@@ -2,14 +2,25 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { useShoppingCart } from "use-shopping-cart"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { formatPrice } from "../utils/helpers"
 
+import MaxWidthWrapper from './maxWidthWrapper'
 import Dialog from "@reach/dialog"
-import ProductDetails from "./productDetails"
 import Close from "./images/close"
 
 import "@reach/dialog/styles.css"
 
 const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
+  // deconstruct product
+  const {
+    name,
+    price,
+    labelId,
+    currency,
+    description,
+    displayedImages,
+  } = product
   // aria-labelledby derived from product_id
   const label = `label__${product.product_id}`
 
@@ -22,6 +33,9 @@ const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
     // open cart dialog
     showCart()
   }
+  
+  const [isOpen, setIsOpen] = React.useState(false)
+  const toggleOpen = () => setIsOpen(prev => !prev)
 
   return (
     <StyledDialog
@@ -29,8 +43,24 @@ const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
       onDismiss={closeDialog}
       aria-labelledby={label}
     >
-      <Close onClick={closeDialog} />
-      <ProductDetails {...product} labelId={label} />
+      <Close onClick={closeDialog} style={{zIndex: 1}} />
+      <ImgWrapper>
+        <Image image={displayedImages && displayedImages[0]} alt={description} />
+      </ImgWrapper>
+      <CopyWrapper
+        style={{
+          "--height": isOpen ? "70vh" : "40vh",
+        }}
+      >
+        <MaxWidthWrapper width={480}>
+          <NamePriceWrapper onClick={toggleOpen}>
+            <h2 id={labelId}>{name}</h2>
+            <h2>{formatPrice(price, currency)}</h2>
+          </NamePriceWrapper>
+          <p>{description}</p>
+          {/* add "show more" button to show selectors for different price points */}
+        </MaxWidthWrapper>
+      </CopyWrapper>
       <ButtonWrapper>
         <AddToCartBtn onClick={handleAddItem}>Add To Cart</AddToCartBtn>
       </ButtonWrapper>
@@ -47,6 +77,49 @@ const StyledDialog = styled(Dialog)`
   height: 100vh;
   width: 100%;
   padding: 0;
+  
+  isolation: isolate;
+  background-color: var(--color-background);
+  
+  @media (min-width: 800px) {
+    background-color: var(--color-primary-muted);
+  }
+`
+
+const ImgWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const Image = styled(GatsbyImage)`
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  height: 70vh;
+`
+
+const CopyWrapper = styled.div`
+  padding: var(--spacing-2);
+  position: absolute;
+  bottom: 0;
+  max-height: var(--height);
+  height: var(--height);
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: inherit;
+`
+
+const NamePriceWrapper = styled.div`
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--spacing-1);
+  margin-bottom: var(--spacing-3);
 `
 
 const ButtonWrapper = styled.div`
@@ -54,6 +127,10 @@ const ButtonWrapper = styled.div`
   bottom: var(--spacing-0);
   width: 100%;
   padding: var(--spacing-2);
+
+  @media (min-width: 800px) {
+    right: var(--spacing-3);
+  }
 `
 
 const AddToCartBtn = styled.button`
@@ -61,7 +138,7 @@ const AddToCartBtn = styled.button`
   outline: none;
   border: none;
   padding: var(--spacing-1);
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-darkened);
   font-family: var(--font-family-secondary);
   color: var(--color-background);
   text-transform: uppercase;
