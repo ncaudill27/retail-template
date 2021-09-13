@@ -45,12 +45,9 @@ const InputQuantity = ({ id, quantity }) => {
 
 const Wrapper = styled.div`
   display: flex;
-  width: 153px;
-  height: 50px;
 
   & > * {
     width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

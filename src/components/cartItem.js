@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 
+import Name from "./typography/headingQua"
 import InputQuantity from "./inputQuantity"
 
 const CartItem = ({
@@ -14,75 +15,44 @@ const CartItem = ({
 }) => (
   <>
     <StyledCartItem>
-      <ImageNameWrapper>
-        <Image image={displayedImages.find(Boolean)} alt={description} />
+        <Image image={displayedImages.find(Boolean)} alt={description} layout="constrained" />
+        <CopyWrapper>
         <Name>{name}</Name>
-      </ImageNameWrapper>
+        <Description>{description}</Description>
+        </CopyWrapper>
       <PricingWrapper>
-        <PricingBox>
-          <h6>Quantity</h6>
-          <InputQuantity id={id} quantity={quantity} />
-        </PricingBox>
-        <AtSign>&#64;</AtSign>
-        <PricingBox>
-          <h6>Total</h6>
-          <p>{formattedValue}</p>
-        </PricingBox>
+        <h6>Quantity</h6>
+        <InputQuantity id={id} quantity={quantity} />
+        <h6>Total</h6>
+        <p>{formattedValue}</p>
       </PricingWrapper>
     </StyledCartItem>
   </>
 )
 
 const StyledCartItem = styled.div`
-  padding-left: var(--spacing-1);
-  padding-right: var(--spacing-1);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-`
-
-const ImageNameWrapper = styled.div`
+  padding-right: var(--spacing-5);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+
 `
 
 const Image = styled(GatsbyImage)`
-  flex-grow: 1;
-  width: 34%;
+  width: 30%;
 `
 
-const Name = styled.h3`
-  margin-left: var(--spacing-0);
-  text-align: right;
-  flex-grow: 2;
-  width: 66%;
-`
+const CopyWrapper = styled.div`
+  width: 30%;
+`;
+
+const Description = styled.p`
+  font-size: 14px;
+  line-height: 1.1;
+`;
 
 const PricingWrapper = styled.div`
-  margin-top: var(--spacing-2);
-  height: var(--spacing-5);
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  gap: var(--spacing-2);
-
-  & > * {
-    text-align: center;
-    height: 100%;
-  }
-`
-
-const PricingBox = styled.div`
-  h6 {
-    margin-bottom: 0.25em;
-    font-size: 1rem;
-    text-decoration: underline;
-    font-weight: bold;
-  }
-
-  p {
-    margin: 0;
-  }
+  width: 30%;
+  text-align: right;
 `
 
 const AtSign = styled.span`
