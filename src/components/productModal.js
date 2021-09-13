@@ -45,7 +45,7 @@ const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
     >
       <Close onClick={closeDialog} style={{zIndex: 1}} />
       <ImgWrapper>
-        <Image image={displayedImages && displayedImages[0]} alt={description} />
+        <Image image={displayedImages && displayedImages[0]} alt={description} layout="constrained" />
       </ImgWrapper>
       <CopyWrapper
         style={{
@@ -83,6 +83,13 @@ const StyledDialog = styled(Dialog)`
   
   @media (min-width: 800px) {
     background-color: var(--color-primary-muted);
+    padding: var(--spacing-4) var(--spacing-8);
+
+    display: grid;
+    grid-template-areas: 
+      "image copy"
+      "image button"
+    ;
   }
 `
 
@@ -91,6 +98,14 @@ const ImgWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 800px) {
+    position: static;
+    grid-area: image;
+    height: 100%;
+    overflow: hidden;
+  }
+  
 `
 
 const Image = styled(GatsbyImage)`
@@ -98,6 +113,11 @@ const Image = styled(GatsbyImage)`
   margin-left: auto;
   margin-right: auto;
   height: 70vh;
+
+  @media (min-width: 800px) {
+    height: unset;
+    max-width: 500px;
+  }
 `
 
 const CopyWrapper = styled.div`
@@ -110,6 +130,12 @@ const CopyWrapper = styled.div`
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   background-color: inherit;
+
+  @media (min-width: 800px) {
+    position: static;
+    grid-area: copy;
+    align-self: center;
+  }
 `
 
 const NamePriceWrapper = styled.div`
@@ -129,7 +155,9 @@ const ButtonWrapper = styled.div`
   padding: var(--spacing-2);
 
   @media (min-width: 800px) {
-    right: var(--spacing-3);
+    position: static;
+    grid-area: button;
+    align-self: flex-end;
   }
 `
 
