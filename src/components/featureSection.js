@@ -35,10 +35,18 @@ const RootWrapper = styled.div`
 const SideScrollWrapper = styled.div`
   overflow-x: scroll;
   
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+/* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 `;
 
 const ProductsWrapper = styled.div`
   padding: var(--spacing-5);
+  padding-left: var(--spacing-10);
   display: flex;
   gap: var(--spacing-5);
   width: fit-content;

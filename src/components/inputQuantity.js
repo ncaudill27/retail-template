@@ -57,13 +57,14 @@ const Wrapper = styled.div`
 const Button = styled.button`
   outline: none;
   border: none;
+  background-color: inherit;
 `
 
 const Input = styled.input`
   outline: none;
   border: none;
   text-align: center;
-  background-color: var(--color-primary-muted);
+  background-color: inherit;
 `
 
 export default InputQuantity

@@ -99,7 +99,7 @@ const CheckoutButton = styled.button`
 `
 const TopWrapper = styled.div`
   width: 100%;
-  height: 75vh;
+  height: calc(100% - 100px);
   padding: inherit;
 
   position: absolute;
@@ -107,10 +107,13 @@ const TopWrapper = styled.div`
   left: 0;
 
   overflow-y: scroll;
+
+  @media (min-width: 600px) {
+    height: calc(100% - 176px);
+  }
 `
 const BottomWrapper = styled.div`
   width: 100%;
-  height: 25vh;
 
   position: absolute;
   bottom: 0;
