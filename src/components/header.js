@@ -6,16 +6,15 @@ import { Link } from "gatsby"
 const Header = ({ siteTitle }) => {
   return (
     <StyledHeader>
-        <Title>
-          <StyledLink to="/">{siteTitle}</StyledLink>
-        </Title>
+      <Title>
+        <StyledLink to="/">{siteTitle}</StyledLink>
+      </Title>
     </StyledHeader>
   )
 }
 const StyledHeader = styled.header`
   width: 100%;
   padding: var(--spacing-2) var(--spacing-4);
-
 `
 
 const Title = styled.h1`

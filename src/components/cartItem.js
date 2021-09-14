@@ -15,11 +15,15 @@ const CartItem = ({
 }) => (
   <>
     <StyledCartItem>
-        <Image image={displayedImages.find(Boolean)} alt={description} layout="constrained" />
-        <CopyWrapper>
+      <Image
+        image={displayedImages.find(Boolean)}
+        alt={description}
+        layout="constrained"
+      />
+      <CopyWrapper>
         <Heading>{name}</Heading>
         <Description>{description}</Description>
-        </CopyWrapper>
+      </CopyWrapper>
       <QuantityWrapper>
         <InputQuantity id={id} quantity={quantity} />
         <PricingWrapper>
@@ -35,7 +39,6 @@ const StyledCartItem = styled.div`
   padding-right: var(--spacing-5);
   display: flex;
   justify-content: space-between;
-
 `
 
 const Image = styled(GatsbyImage)`
@@ -47,12 +50,12 @@ const CopyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-`;
+`
 
 const Description = styled.p`
   font-size: 14px;
   line-height: 1.1;
-`;
+`
 
 const QuantityWrapper = styled.div`
   width: 25%;
@@ -66,6 +69,6 @@ const PricingWrapper = styled.div`
   justify-content: space-between;
   align-items: center; */
   text-align: center;
-`;
+`
 
 export default CartItem

@@ -5,7 +5,7 @@ import { useShoppingCart } from "use-shopping-cart"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { formatPrice } from "../utils/helpers"
 
-import MaxWidthWrapper from './maxWidthWrapper'
+import MaxWidthWrapper from "./maxWidthWrapper"
 import Dialog from "@reach/dialog"
 import Close from "./images/close"
 
@@ -33,7 +33,7 @@ const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
     // open cart dialog
     showCart()
   }
-  
+
   const [isOpen, setIsOpen] = React.useState(false)
   const toggleOpen = () => setIsOpen(prev => !prev)
 
@@ -43,9 +43,13 @@ const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
       onDismiss={closeDialog}
       aria-labelledby={label}
     >
-      <Close onClick={closeDialog} style={{zIndex: 1}} />
+      <Close onClick={closeDialog} style={{ zIndex: 1 }} />
       <ImgWrapper>
-        <Image image={displayedImages && displayedImages[0]} alt={description} layout="constrained" />
+        <Image
+          image={displayedImages && displayedImages[0]}
+          alt={description}
+          layout="constrained"
+        />
       </ImgWrapper>
       <CopyWrapper
         style={{
@@ -77,20 +81,19 @@ const StyledDialog = styled(Dialog)`
   height: 100vh;
   width: 100%;
   padding: 0;
-  
+
   isolation: isolate;
   background-color: var(--color-background);
-  
+
   @media (min-width: 800px) {
     background-color: var(--color-primary-muted);
     padding: var(--spacing-10) var(--spacing-8);
 
     display: grid;
     gap: var(--spacing-1);
-    grid-template-areas: 
+    grid-template-areas:
       "image copy"
-      "image button"
-    ;
+      "image button";
   }
 `
 
@@ -106,7 +109,6 @@ const ImgWrapper = styled.div`
     height: 100%;
     overflow: hidden;
   }
-  
 `
 
 const Image = styled(GatsbyImage)`

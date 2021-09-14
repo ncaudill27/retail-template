@@ -6,7 +6,7 @@ import { formatPrice } from "../utils/helpers"
 
 import Dialog from "@reach/dialog"
 import Close from "./images/close"
-import Heading from './typography/headingTer'
+import Heading from "./typography/headingTer"
 import CartItemsList from "./cartItemList"
 
 const CartModal = ({ showDialog, closeDialog }) => {
@@ -42,9 +42,9 @@ const CartModal = ({ showDialog, closeDialog }) => {
     >
       <Close onClick={closeDialog} />
       <TopWrapper>
-      <CartHeader id={label}>Cart</CartHeader>
-      <CartItemsList cart={Object.values(cartDetails)} />
-        </TopWrapper>
+        <CartHeader id={label}>Cart</CartHeader>
+        <CartItemsList cart={Object.values(cartDetails)} />
+      </TopWrapper>
       <BottomWrapper>
         <SubTotal>
           <h4>Sub-total</h4>
@@ -101,17 +101,16 @@ const TopWrapper = styled.div`
   width: 100%;
   height: 75vh;
   padding: inherit;
-  
+
   position: absolute;
   top: 0;
   left: 0;
 
   overflow-y: scroll;
-`;
+`
 const BottomWrapper = styled.div`
   width: 100%;
   height: 25vh;
-  
 
   position: absolute;
   bottom: 0;
@@ -120,7 +119,7 @@ const BottomWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-`;
+`
 
 CartModal.propTypes = {
   showDialog: PropTypes.bool.isRequired,

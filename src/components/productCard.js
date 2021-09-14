@@ -19,7 +19,7 @@ const ProductCard = product => {
         <GatsbyImage
           image={displayedImages.find(Boolean)}
           alt={description}
-          style={{ maxHeight: 400 }}
+          style={{ width: 312, maxHeight: 400 }}
         />
       </ImgWrapper>
       <CopyWrapper>
@@ -33,7 +33,6 @@ const ProductCard = product => {
 const StyledCard = styled.article`
   width: 100%;
   height: 100%;
-  grid-row-end: var(--grid-row-end);
 `
 
 const ImgWrapper = styled.div``

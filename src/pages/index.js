@@ -48,7 +48,10 @@ const IndexPage = ({ data }) => {
         alt="gradient image starting with yellow"
         style={{ width: "100%", height: "500px" }}
       />
-      <FeatureSection products={data?.featured?.edges} />
+      <FeatureSection
+        products={data?.featured?.edges}
+        handleProductView={handleProductView}
+      />
       <ProductGrid
         products={transformedProducts}
         handleProductView={handleProductView}
@@ -97,9 +100,11 @@ export const query = graphql`
         }
       }
     }
-    featured: allStripePrice(filter: {product: {metadata: {outdoor: {eq: "true"}}}}) {
-    edges {
-      node {
+    featured: allStripePrice(
+      filter: { product: { metadata: { outdoor: { eq: "true" } } } }
+    ) {
+      edges {
+        node {
           id
           active
           unit_amount
@@ -120,7 +125,7 @@ export const query = graphql`
           currency
         }
       }
-  }
+    }
   }
 `
 

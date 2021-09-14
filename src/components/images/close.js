@@ -24,7 +24,7 @@ const Wrapper = styled.div`
     height: 30px;
     width: 30px;
     top: var(--spacing-3);
-  right: var(--spacing-3);
+    right: var(--spacing-3);
   }
 `
 
