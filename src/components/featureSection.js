@@ -5,9 +5,8 @@ import useProductsTransformer from "../hooks/useProductsTransformer"
 import Header from './typography/headingSec'
 
 const FeatureSection = ({products}) => {
-  const transformedProducts = useProductsTransformer(products?.edges)
+  const transformedProducts = useProductsTransformer(products)
 
-  console.log(transformedProducts);
   return (
     <RootWrapper>
       <Header>Products of the week</Header>
@@ -20,5 +19,9 @@ const RootWrapper = styled.div`
   margin: 0;
   background-color: var(--color-primary-muted);
 `;
+
+FeatureSection.defaultProps = {
+  products: {}
+}
 
 export default FeatureSection

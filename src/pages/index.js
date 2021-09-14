@@ -48,7 +48,7 @@ const IndexPage = ({ data }) => {
         alt="gradient image starting with yellow"
         style={{ width: "100%", height: "500px" }}
       />
-      <FeatureSection products={data?.featured} />
+      <FeatureSection products={data?.featured?.edges} />
       <ProductGrid
         products={transformedProducts}
         handleProductView={handleProductView}
@@ -100,12 +100,26 @@ export const query = graphql`
     featured: allStripePrice(filter: {product: {metadata: {outdoor: {eq: "true"}}}}) {
     edges {
       node {
-        product {
-          name
+          id
+          active
+          unit_amount
+          product {
+            id
+            name
+            description
+            metadata {
+              size
+              outdoor
+            }
+            image: localFiles {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          currency
         }
-        id
       }
-    }
   }
   }
 `
