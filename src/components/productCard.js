@@ -3,6 +3,8 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { formatPrice } from "../utils/helpers"
 
+import { RootWrapper } from './featureSection'
+
 const ProductCard = product => {
   const {
     name,
@@ -19,7 +21,7 @@ const ProductCard = product => {
         <GatsbyImage
           image={displayedImages.find(Boolean)}
           alt={description}
-          style={{ width: 312, maxHeight: 400 }}
+          style={{ width: '100%', height: 'auto'}}
         />
       </ImgWrapper>
       <CopyWrapper>
@@ -35,7 +37,17 @@ const StyledCard = styled.article`
   height: 100%;
 `
 
-const ImgWrapper = styled.div``
+const ImgWrapper = styled.div`
+  width: 312px;
+  max-width: 312px;
+  height: 400px;
+  overflow: hidden;
+
+  ${RootWrapper} & {
+    width: 400px;
+    max-height: 590px;
+  }
+`
 
 const CopyWrapper = styled.div`
   display: flex;

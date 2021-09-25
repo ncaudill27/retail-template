@@ -26,7 +26,7 @@ const FeatureSection = ({ products, handleProductView }) => {
   )
 }
 
-const RootWrapper = styled.div`
+export const RootWrapper = styled.div`
   padding: var(--spacing-4) var(--spacing-1);
   margin: 0;
   background-color: var(--color-primary-muted);
