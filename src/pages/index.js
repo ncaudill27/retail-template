@@ -46,7 +46,7 @@ const IndexPage = ({ data }) => {
         src="../images/green-hero.jpg"
         attribution="https://unsplash.com/@chrisleeiam"
         alt="gradient image starting with yellow"
-        style={{ width: "100%", height: "500px" }}
+        style={{ width: "100%", height: "500px", marginBottom: -6 }}
       />
       <FeatureSection
         products={data?.featured?.edges}
