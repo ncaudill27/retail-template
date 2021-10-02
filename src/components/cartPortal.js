@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import Portal from "@reach/portal"
 import { useShoppingCart } from "use-shopping-cart"
 
 import CartImage from "../images/svg/shopping-cart.svg"

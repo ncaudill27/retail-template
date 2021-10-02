@@ -36,6 +36,7 @@ const CartModal = ({ showDialog, closeDialog }) => {
     }
   }
 
+  console.log(cartDetails)
   return (
     <StyledDialog
       isOpen={showDialog}
@@ -67,7 +68,7 @@ const StyledDialog = styled(Dialog)`
   width: 100%;
   padding: var(--spacing-1);
   background-color: var(--color-background);
-  
+
   isolation: isolate;
 
   @media (min-width: 600px) {
@@ -81,29 +82,9 @@ const CartHeader = styled(Heading)`
   padding-bottom: var(--spacing-1);
 `
 
-const SubTotal = styled.div`
-  padding: var(--spacing-1);
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--color-background);
-
-  @media (min-width: 600px) {
-    padding: var(--spacing-2) var(--spacing-3);
-  }
-`
-
-const CheckoutButton = styled.button`
-  outline: none;
-  border: none;
-  width: 100%;
-  padding: var(--spacing-4);
-  color: black;
-  text-transform: uppercase;
-  background: var(--color-primary);
-`
 const TopWrapper = styled.div`
   width: 100%;
-  height: calc(100% - 100px);
+  height: calc(100% - 176px);
   padding: inherit;
 
   position: absolute;
@@ -111,10 +92,6 @@ const TopWrapper = styled.div`
   left: 0;
 
   overflow-y: scroll;
-
-  @media (min-width: 600px) {
-    height: calc(100% - 176px);
-  }
 `
 const BottomWrapper = styled.div`
   width: 100%;
@@ -126,6 +103,32 @@ const BottomWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+`
+
+const SubTotal = styled.div`
+  padding-top: var(--spacing-2);
+  padding-bottom: var(--spacing-2);
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-background);
+
+  @media (min-width: 600px) {
+    padding-left: var(--spacing-3);
+    padding-right: var(--spacing-3);
+  }
+`
+
+const CheckoutButton = styled.button`
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 104px;
+  padding: var(--spacing-4);
+  color: black;
+  text-transform: uppercase;
+  background: var(--color-primary);
 `
 
 CartModal.propTypes = {
