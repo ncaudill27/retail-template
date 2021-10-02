@@ -9,21 +9,16 @@ const CartPortal = ({ showCart }) => {
   const { cartCount } = useShoppingCart()
 
   return (
-    <Portal>
-      <Wrapper onClick={showCart}>
-        <CartImage style={{ width: "40px", height: "40px" }} />
-        <CountWrapper>
-          <Count>{cartCount}</Count>
-        </CountWrapper>
-      </Wrapper>
-    </Portal>
+    <Wrapper onClick={showCart}>
+      <CartImage style={{ width: "40px", height: "40px" }} />
+      <CountWrapper>
+        <Count>{cartCount}</Count>
+      </CountWrapper>
+    </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-  position: absolute;
-  top: var(--spacing-2);
-  right: var(--spacing-10);
   padding: var(--spacing-0);
   display: flex;
   align-items: center;

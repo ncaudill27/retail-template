@@ -27,6 +27,10 @@ const FeatureSection = ({ products, handleProductView }) => {
 }
 
 export const RootWrapper = styled.div`
+//! Why do I have to drag this element up?
+  position: relative;
+  top: calc(-1 * var(--spacing-1));
+
   padding: var(--spacing-4) var(--spacing-1);
   padding-right: 0;
   margin: 0;

@@ -1,10 +1,8 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { useShoppingCart } from "use-shopping-cart"
 import useProductsTransformer from "../hooks/useProductsTransformer"
 
-import CartPortal from "../components/cartPortal"
 import ProductGrid from "../components/productGrid"
 import ProductModal from "../components/productModal"
 import CartModal from "../components/cartModal"
@@ -14,8 +12,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
-  // check cartCount to determine whether to render CartPortal
-  const { cartCount } = useShoppingCart()
 
   // transform data from Stripe Products
   const transformedProducts = useProductsTransformer(data?.products?.edges)
@@ -39,14 +35,13 @@ const IndexPage = ({ data }) => {
   }
 
   return (
-    <Layout>
+    <Layout showCart={openCartDialog}>
       <SEO title="Home" />
-      {cartCount > 0 && <CartPortal showCart={openCartDialog} />}
       <StaticImage
         src="../images/green-hero.jpg"
         attribution="https://unsplash.com/@chrisleeiam"
         alt="gradient image starting with yellow"
-        style={{ width: "100%", height: "500px", marginBottom: -6 }}
+        style={{ width: "100%", height: "500px" }}
       />
       <FeatureSection
         products={data?.featured?.edges}

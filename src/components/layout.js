@@ -7,7 +7,7 @@ import Header from "./header"
 import MaxWidthWrapper from "./maxWidthWrapper"
 // TODO switch from generic gatsby css reset
 
-const Layout = ({ children }) => {
+const Layout = ({ showCart, children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data?.site?.siteMetadata?.title || `Title`} />
+      <Header siteTitle={data?.site?.siteMetadata?.title || `Title`} showCart={showCart} />
       <main>{children}</main>
       <Footer>
         <MaxWidthWrapper>

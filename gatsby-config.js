@@ -7,6 +7,7 @@ module.exports = {
     title: `Floret`,
     description: `A basic e-commerce template implementing use-shopping-cart`,
     author: `Nelson Caudill`,
+    siteUrl: `https://retail-template.netlify.app/`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

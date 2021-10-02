@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
 export default styled.h1`
+  color: var(--color-text);
+  line-height: 1.05;
   /* ----------
       FONT SIZE VARIABLES
     ---------- */
@@ -11,16 +13,5 @@ export default styled.h1`
     var(--type-fontsize-min),
     var(--type-fontsize-value),
     var(--type-fontsize-max)
-  );
-  /* ----------
-      LINE HEIGHT VARIABLES
-    ---------- */
-  --type-lineheight-min: 1.538461538462;
-  --type-lineheight-max: 1.5;
-  --type-lineheight-value: 1.13em + 6.83vw;
-  line-height: clamp(
-    var(--type-lineheight-min),
-    var(--type-lineheight-value),
-    var(--type-lineheight-max)
   );
 `
