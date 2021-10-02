@@ -9,6 +9,8 @@ import Close from "./images/close"
 import Heading from "./typography/headingTer"
 import CartItemsList from "./cartItemList"
 
+import "@reach/dialog/styles.css"
+
 const CartModal = ({ showDialog, closeDialog }) => {
   // aria-labelledby generator
   const label = "cart__random-id-number" //todo generate random id
@@ -65,6 +67,8 @@ const StyledDialog = styled(Dialog)`
   width: 100%;
   padding: var(--spacing-1);
   background-color: var(--color-background);
+  
+  isolation: isolate;
 
   @media (min-width: 600px) {
     width: 600px;

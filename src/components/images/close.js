@@ -13,16 +13,23 @@ const Close = props => (
   </Wrapper>
 )
 
-const Wrapper = styled.div`
-  height: 40px;
-  width: 40px;
-  position: absolute;
+const Wrapper = styled.button`
+  position: fixed;
   top: var(--spacing-1);
   right: var(--spacing-1);
 
+  padding: var(--spacing-0);
+  height: 45px;
+  width: 45px;
+
+  background-color: inherit;
+  border: none;
+
+  z-index: 1;
+
   @media (min-width: 600px) {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     top: var(--spacing-3);
     right: var(--spacing-3);
   }
