@@ -15,6 +15,8 @@ const ProductCard = product => {
     handleProductView,
   } = product
 
+  console.log(displayedImages.find(Boolean));
+  
   return (
     <StyledCard onClick={handleProductView(product)}>
       <ImgWrapper>
@@ -38,8 +40,8 @@ const StyledCard = styled.article`
 `
 
 const ImgWrapper = styled.div`
-  width: 312px;
-  max-width: 312px;
+  /* width: 312px;
+  max-width: 312px; */
   height: 400px;
   overflow: hidden;
 

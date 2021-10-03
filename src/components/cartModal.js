@@ -95,7 +95,7 @@ const TopWrapper = styled.div`
 const BottomWrapper = styled.div`
   width: 100%;
 
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
 
@@ -120,7 +120,6 @@ const SubTotal = styled.div`
 `
 
 const CheckoutButton = styled.button`
-  outline: none;
   border: none;
   width: 100%;
   height: 104px;

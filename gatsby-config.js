@@ -21,6 +21,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        icon: 'src/images/favicon.png'
+      }
+    },
+    {
       resolve: `gatsby-source-stripe`,
       options: {
         objects: ["Price"],
@@ -37,7 +43,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     // {
     //   resolve: `gatsby-plugin-manifest`,
     //   options: {
