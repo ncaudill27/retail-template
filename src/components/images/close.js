@@ -16,7 +16,7 @@ const Close = props => (
 const Wrapper = styled.button`
   position: fixed;
   top: var(--spacing-1);
-  right: var(--spacing-1);
+  right: var(--spacing-0);
 
   padding: var(--spacing-0);
   height: 45px;

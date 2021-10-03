@@ -81,6 +81,10 @@ const SideScrollButtonWrapper = styled.div`
   padding-left: var(--spacing-3);
 
   z-index: 1;
+
+  @media (max-width: 700px), (min-width: 1700px) {
+    display: none;
+  }
 `
 
 const SideScrollWrapper = styled.div`

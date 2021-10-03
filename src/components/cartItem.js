@@ -36,7 +36,7 @@ const CartItem = ({
 )
 
 const StyledCartItem = styled.div`
-  padding-right: var(--spacing-5);
+  padding-right: var(--spacing-4);
   padding-top: var(--spacing-5);
   display: flex;
   justify-content: space-between;
