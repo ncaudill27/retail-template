@@ -20,13 +20,13 @@ const FeatureSection = ({ products, handleProductView }) => {
   }, 100);
 
   const handleRightScroll = e => {
-    sideScrollEl.current.scrollLeft += 853
-    setScrollLeft(prev => prev + 853)
+    sideScrollEl.current.scrollLeft += 500
+    setScrollLeft(prev => prev + 500)
   }
 
   const handleLeftScroll = e => {
-    sideScrollEl.current.scrollLeft -= 853
-    setScrollLeft(prev => prev - 853)
+    sideScrollEl.current.scrollLeft -= 500
+    setScrollLeft(prev => prev - 500)
   }
 
   return (

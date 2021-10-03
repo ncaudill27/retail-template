@@ -44,6 +44,8 @@ const InputQuantity = ({ id, quantity }) => {
 }
 
 const Wrapper = styled.div`
+  isolation: isolate;
+  
   display: flex;
   background-color: var(--color-primary-muted);
   min-width: 68.25px;
@@ -62,6 +64,9 @@ const Button = styled.button`
 `
 
 const Input = styled.input`
+  position: relative;
+  z-index: 1;
+
   outline: none;
   border: none;
   text-align: center;

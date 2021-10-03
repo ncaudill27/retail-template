@@ -4,8 +4,8 @@ import styled from "styled-components"
 const SideScrollButton = props => <Wrapper {...props} />
 
 const Wrapper = styled.button`
-  height: 100%;
-  width: auto;
+  height: 60px;
+  width: 60px;
 
   padding: var(--spacing-1);
   padding-left: 18px;
