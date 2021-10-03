@@ -1,53 +1,81 @@
 import React from "react"
 import styled from "styled-components"
 import useProductsTransformer from "../hooks/useProductsTransformer"
-import ProductCard from "./productCard"
 
-import Header from "./typography/headingSec"
+import Heading from "./typography/headingSec"
+import ProductCard from "./productCard"
+import LeftArrow from "./images/leftArrow"
+import RightArrow from "./images/rightArrow"
 
 const FeatureSection = ({ products, handleProductView }) => {
   const transformedProducts = useProductsTransformer(products)
 
   return (
     <RootWrapper>
-      <Header>Products of the week</Header>
+      <Title>Products of the week</Title>
       <SideScrollWrapper>
-      <ProductsWrapper>
-        {transformedProducts.map(product => (
-          <ProductCard
-            key={product.id}
-            handleProductView={handleProductView}
-            {...product}
-          />
-        ))}
-      </ProductsWrapper>
+        <SideScrollButtonWrapper>
+          <LeftArrow />
+          <RightArrow />
+        </SideScrollButtonWrapper>
+        <ProductsWrapper>
+          {transformedProducts.map(product => (
+            <ProductCard
+              key={product.id}
+              handleProductView={handleProductView}
+              {...product}
+            />
+          ))}
+        </ProductsWrapper>
       </SideScrollWrapper>
     </RootWrapper>
   )
 }
 
 export const RootWrapper = styled.div`
-//! Why do I have to drag this element up?
+  //! Why do I have to drag this element up?
   position: relative;
   top: calc(-1 * var(--spacing-1));
 
-  padding: var(--spacing-4) var(--spacing-1);
-  padding-right: 0;
+  padding: var(--spacing-4) 0;
   margin: 0;
   background-color: var(--color-primary-muted);
+
+  isolation: isolate;
+`
+
+const Title = styled(Heading)`
+  padding-left: var(--spacing-1);
+`;
+
+const SideScrollButtonWrapper = styled.div`
+  position: absolute;
+  left: calc(-1 * var(--spacing-1));
+  top: 50%;
+  height: 100px;
+  margin-top: -50px;
+  width: 100vw;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding-right: var(--spacing-3);
+  padding-left: var(--spacing-3);
+
+  z-index: 1;
 `
 
 const SideScrollWrapper = styled.div`
   overflow-x: scroll;
-  
+
   &::-webkit-scrollbar {
     display: none;
   }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-`;
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+`
 
 const ProductsWrapper = styled.div`
   padding: var(--spacing-5);

@@ -48,6 +48,7 @@ const ImgWrapper = styled.div`
   ${RootWrapper} & {
     width: 400px;
     max-height: 590px;
+    height: 590px;
   }
 `
 
