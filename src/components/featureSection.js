@@ -52,7 +52,7 @@ const SideScrollButtonWrapper = styled.div`
   position: absolute;
   left: calc(-1 * var(--spacing-1));
   top: 50%;
-  height: 100px;
+  height: 60px;
   margin-top: -50px;
   width: 100vw;
 
