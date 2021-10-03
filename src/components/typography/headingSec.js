@@ -2,7 +2,8 @@ import styled from "styled-components"
 
 export default styled.h2`
   font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-semi-bold);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text);
   /* ----------
       FONT SIZE VARIABLES
     ---------- */

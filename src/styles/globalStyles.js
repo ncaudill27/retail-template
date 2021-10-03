@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components"
+import "./typography.css";
 
 export default createGlobalStyle`
 html {
@@ -34,7 +35,7 @@ html {
   --font-weight-medium: 500;
   --font-weight-regular: 400;
   --font-weight-light: 300;
-  --font-family-primary: "Montserrat", "DejaVu Sans", "Verdana", "sans‑serif";
+  --font-family-primary: "Telma", "Montserrat", "DejaVu Sans", "Verdana", "sans‑serif";
   --font-family-secondary: "Open Sans", "Segoe UI", "Apple SD Gothic Neo", "Lucida Grande", "Lucida Sans Unicode", "sans‑serif";
   }
   /* ----------

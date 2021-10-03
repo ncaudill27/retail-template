@@ -56,12 +56,21 @@ const CopyWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   gap: var(--spacing-1);
+  font-family: var(--font-family-secondary);
+  font-size: 1em;
+  font-weight: var(--font-weight-regular);
 `
 
-const CardTitle = styled.h6``
+const CardTitle = styled.h6`
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+`
 
 const CardPrice = styled.h6`
-  font-family: var(--font-family-primary);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
 `
 
 export default ProductCard
