@@ -35,7 +35,7 @@ const InputQuantity = ({ id, quantity }) => {
       <Button onClick={handleDecrement(id)} disabled={loading}>
         &#45;
       </Button>
-      <Input value={quantity} readOnly disabled={loading} />
+      <Input value={quantity} readOnly disabled={loading} tabIndex={-1} />
       <Button onClick={handleIncrement(id)} disabled={loading}>
         &#43;
       </Button>
@@ -46,7 +46,9 @@ const InputQuantity = ({ id, quantity }) => {
 const Wrapper = styled.div`
   display: flex;
   background-color: var(--color-primary-muted);
+  min-width: 68.25px;
   & > * {
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -55,7 +57,6 @@ const Wrapper = styled.div`
 `
 
 const Button = styled.button`
-  outline: none;
   border: none;
   background-color: inherit;
 `

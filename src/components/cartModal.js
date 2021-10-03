@@ -36,7 +36,6 @@ const CartModal = ({ showDialog, closeDialog }) => {
     }
   }
 
-  console.log(cartDetails)
   return (
     <StyledDialog
       isOpen={showDialog}
