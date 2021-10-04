@@ -3,7 +3,7 @@ import React from "react"
 import { CartProvider } from "use-shopping-cart"
 import { loadStripe } from "@stripe/stripe-js"
 
-import GlobalStyles from "./src/styles/globalStyles"
+import GlobalStyles from "./src/css/globalStyles"
 
 import { ApolloProvider } from "@apollo/client"
 import { client } from "./src/apollo/client"

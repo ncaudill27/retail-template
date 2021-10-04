@@ -30,13 +30,15 @@ html {
   /* ----------
     BASE TYPOGRAPHY RULES
   ---------- */
+  --font-weight-black: 900;
   --font-weight-bold: 700;
   --font-weight-semi-bold: 600;
   --font-weight-medium: 500;
   --font-weight-regular: 400;
   --font-weight-light: 300;
-  --font-family-primary: "Telma", "Montserrat", "DejaVu Sans", "Verdana", "sans‑serif";
-  --font-family-secondary: "Open Sans", "Segoe UI", "Apple SD Gothic Neo", "Lucida Grande", "Lucida Sans Unicode", "sans‑serif";
+  --font-family-primary: "Telma-Black", "Montserrat", "DejaVu Sans", "Verdana", "sans‑serif";
+  --font-family-secondary: "Telma-Light", "Montserrat", "DejaVu Sans", "Verdana", "sans‑serif";
+  --font-family-tertiary: "Open Sans", "Segoe UI", "Apple SD Gothic Neo", "Lucida Grande", "Lucida Sans Unicode", "sans‑serif";
   }
   /* ----------
     CSS RESET

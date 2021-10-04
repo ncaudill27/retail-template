@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Telma-Light";
+  src: url(../fonts/telma/Telma-Light.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Telma-Black";
+  src: url(../fonts/telma/Telma-Black.woff2) format("woff2");
+}

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export default styled.h2`
-  font-family: var(--font-family-primary);
+  font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-light);
   color: var(--color-text);
   /* ----------

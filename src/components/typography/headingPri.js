@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export default styled.h1`
   font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-light);
+  font-weight: var(--font-weight-black);
   color: var(--color-text);
   line-height: 1.05;
   /* ----------
