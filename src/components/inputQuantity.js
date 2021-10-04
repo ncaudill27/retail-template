@@ -71,6 +71,7 @@ const Input = styled.input`
   border: none;
   text-align: center;
   background-color: inherit;
+  font-family: var(--font-family-tertiary);
 `
 
 export default InputQuantity

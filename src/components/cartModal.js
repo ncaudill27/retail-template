@@ -49,7 +49,7 @@ const CartModal = ({ showDialog, closeDialog }) => {
       </TopWrapper>
       <BottomWrapper>
         <SubTotal>
-          <h4>Sub-total</h4>
+          <SubTotalCopy>Sub-total</SubTotalCopy>
           <p>{formatPrice(totalPrice, "USD")}</p>
         </SubTotal>
         <CheckoutButton onClick={handleCheckout}>Checkout</CheckoutButton>
@@ -103,7 +103,13 @@ const BottomWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+
+  font-family: var(--font-family-tertiary);
 `
+
+const SubTotalCopy = styled.h4`
+  font-family: var(--font-family-tertiary);
+`;
 
 const SubTotal = styled.div`
   padding-top: var(--spacing-2);
@@ -113,7 +119,7 @@ const SubTotal = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: var(--color-background);
-
+  
   @media (min-width: 600px) {
     padding-left: var(--spacing-3);
     padding-right: var(--spacing-3);

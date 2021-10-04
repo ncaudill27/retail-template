@@ -53,21 +53,24 @@ const ImgWrapper = styled.div`
 `
 
 const CopyWrapper = styled.div`
+  margin-top: var(--spacing-1);
   display: flex;
   justify-content: space-between;
   gap: var(--spacing-1);
-  font-family: var(--font-family-secondary);
-  font-size: 1em;
+  font-family: var(--font-family-tertiary);
+  font-size: 1.125em;
   font-weight: var(--font-weight-regular);
 `
 
 const CardTitle = styled.h6`
+  margin: 0;
   font-family: inherit;
   font-size: inherit;
-  font-weight: inherit;
+  font-weight: var(--font-weight-bold);
 `
 
 const CardPrice = styled.h6`
+  margin: 0;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;

@@ -25,6 +25,7 @@ const Wrapper = styled.div`
   gap: var(--spacing-0);
   background-color: var(--color-primary);
   border-radius: 10px;
+  font-family: var(--font-family-tertiary);
 `
 
 const CountWrapper = styled.div`

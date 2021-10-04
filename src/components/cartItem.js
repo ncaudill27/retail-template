@@ -56,6 +56,7 @@ const CopyWrapper = styled.div`
 const Description = styled.p`
   font-size: 14px;
   line-height: 1.1;
+  font-family: var(--font-family-tertiary);
 `
 
 const QuantityWrapper = styled.div`
@@ -70,6 +71,7 @@ const PricingWrapper = styled.div`
   justify-content: space-between;
   align-items: center; */
   text-align: center;
+  font-family: var(--font-family-tertiary);
 `
 
 export default CartItem
