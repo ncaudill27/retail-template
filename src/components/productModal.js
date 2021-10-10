@@ -44,30 +44,32 @@ const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
       aria-labelledby={label}
     >
       <Close onClick={closeDialog} style={{ zIndex: 1 }} />
-      <ImgWrapper>
-        <Image
-          image={displayedImages && displayedImages[0]}
-          alt={description}
-          layout="constrained"
-        />
-      </ImgWrapper>
-      <CopyWrapper
-        style={{
-          "--height": isOpen ? "70vh" : "40vh",
-        }}
-      >
-        <MaxWidthWrapper width={480}>
-          <NamePriceWrapper onClick={toggleOpen}>
-            <h2 id={labelId}>{name}</h2>
-            <h2>{formatPrice(price, currency)}</h2>
-          </NamePriceWrapper>
-          <p>{description}</p>
-          {/* add "show more" button to show selectors for different price points */}
-        </MaxWidthWrapper>
-      </CopyWrapper>
-      <ButtonWrapper>
-        <AddToCartBtn onClick={handleAddItem}>Add To Cart</AddToCartBtn>
-      </ButtonWrapper>
+      <SuperWrapper width={995}>
+        <ImgWrapper>
+          <Image
+            image={displayedImages && displayedImages[0]}
+            alt={description}
+            layout="constrained"
+          />
+        </ImgWrapper>
+        <CopyWrapper
+          style={{
+            "--height": isOpen ? "70vh" : "40vh",
+          }}
+        >
+          <MaxWidthWrapper width={480}>
+            <NamePriceWrapper onClick={toggleOpen}>
+              <h2 id={labelId}>{name}</h2>
+              <h2>{formatPrice(price, currency)}</h2>
+            </NamePriceWrapper>
+            <p>{description}</p>
+            {/* add "show more" button to show selectors for different price points */}
+          </MaxWidthWrapper>
+        </CopyWrapper>
+        <ButtonWrapper>
+          <AddToCartBtn onClick={handleAddItem}>Add To Cart</AddToCartBtn>
+        </ButtonWrapper>
+      </SuperWrapper>
     </StyledDialog>
   )
 }
@@ -87,10 +89,17 @@ const StyledDialog = styled(Dialog)`
 
   @media (min-width: 800px) {
     background-color: var(--color-primary-muted);
+  }
+`
+
+const SuperWrapper = styled(MaxWidthWrapper)`
+  @media (min-width: 800px) {
+    height: 500px;
+    background-color: inherit;
     padding: var(--spacing-10) var(--spacing-8);
 
     display: grid;
-    gap: var(--spacing-1);
+    gap: var(--spacing-4);
     grid-template-areas:
       "image copy"
       "image button";
@@ -172,7 +181,7 @@ const AddToCartBtn = styled.button`
   border: none;
   padding: var(--spacing-1);
   background-color: var(--color-primary-darkened);
-  font-family: var(--font-family-secondary);
+  font-family: var(--font-family-tertiary);
   color: var(--color-background);
   text-transform: uppercase;
 `

@@ -82,12 +82,15 @@ html {
     min-height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
-    font-family: var(--font-family-secondary);
+    font-family: var(--font-family-tertiary);
     background-color: var(--color-background);
   }
 
-  h1,h2,h3,h4,h5,h6 {
+  h1 {
     font-family: var(--font-family-primary);
+  }
+  h2,h3,h4,h5,h6 {
+    font-family: var(---font-family-secondary);
   }
 
   /* A elements that don't have a class get default styles */
