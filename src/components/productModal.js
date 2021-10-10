@@ -59,8 +59,8 @@ const ProductModal = ({ showDialog, closeDialog, product, showCart }) => {
         >
           <MaxWidthWrapper width={480}>
             <NamePriceWrapper onClick={toggleOpen}>
-              <h2 id={labelId}>{name}</h2>
-              <h2>{formatPrice(price, currency)}</h2>
+              <Name id={labelId}>{name}</Name>
+              <Price>{formatPrice(price, currency)}</Price>
             </NamePriceWrapper>
             <p>{description}</p>
             {/* add "show more" button to show selectors for different price points */}
@@ -88,21 +88,26 @@ const StyledDialog = styled(Dialog)`
   background-color: var(--color-background);
 
   @media (min-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: var(--color-primary-muted);
   }
 `
 
 const SuperWrapper = styled(MaxWidthWrapper)`
+  background-color: inherit;
   @media (min-width: 800px) {
     height: 500px;
-    background-color: inherit;
-    padding: var(--spacing-10) var(--spacing-8);
-
+    padding-left: var(--spacing-1);
+    padding-right: var(--spacing-1);
+    
     display: grid;
     gap: var(--spacing-4);
     grid-template-areas:
       "image copy"
       "image button";
+    
   }
 `
 
@@ -148,6 +153,9 @@ const CopyWrapper = styled.div`
     position: static;
     padding: 0;
     grid-area: copy;
+    max-height: unset;
+    height: unset;
+    min-width: 474px;
   }
 `
 
@@ -160,6 +168,14 @@ const NamePriceWrapper = styled.div`
   gap: var(--spacing-1);
   margin-bottom: var(--spacing-3);
 `
+
+const Name = styled.h2`
+  font-family: var(--font-family-secondary);
+`;
+
+const Price = styled.h2`
+  font-weight: 400;
+`;
 
 const ButtonWrapper = styled.div`
   position: absolute;
