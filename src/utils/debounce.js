@@ -1,4 +1,4 @@
-export default function (fn, ms) {
+function debounce(fn, ms) {
   let timer
   return () => {
     clearTimeout(timer)
@@ -8,3 +8,5 @@ export default function (fn, ms) {
     }, ms)
   }
 }
+
+export default debounce
